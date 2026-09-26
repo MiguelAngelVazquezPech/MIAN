@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Delirium - Player & Tracklist</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --primary-neon: #00f0ff;
+      --secondary-neon: #ff007f;
+      --bg-dark: #0a0a0f;
+      --card-bg: #12131c;
+      --yt-red: #ff0000;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('set1_912.png') center/cover no-repeat;
+      filter: blur(20px) brightness(0.4);
+      z-index: -1;
+    }
+
+    .nav-logo {
+      max-height: 50px;
+      object-fit: contain;
+    }
+
+    .player-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Estilos del Tracklist con Enlaces */
+    .track-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      text-decoration: none !important;
+      color: inherit;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .track-link:hover {
+      background: rgba(0, 240, 255, 0.08);
+      border-color: var(--primary-neon);
+      transform: translateX(4px);
+    }
+
+    .track-info {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-right: 8px;
+    }
+
+    .track-num {
+      color: var(--secondary-neon);
+      font-weight: bold;
+      font-size: 0.9rem;
+      min-width: 28px;
+      display: inline-block;
+    }
+
+    .track-title {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 0.93rem;
+    }
+
+    .track-artist {
+      font-size: 0.81rem;
+      color: #a0aec0;
+    }
+
+    .yt-icon {
+      color: #718096;
+      font-size: 1.2rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .track-link:hover .yt-icon {
+      color: var(--yt-red);
+      transform: scale(1.15);
+    }
+
+    .column-header {
+      color: var(--primary-neon);
+      border-bottom: 2px solid var(--secondary-neon);
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR / HEADER CON BOTÓN DE REGRESO -->
+  <nav class="navbar border-bottom border-secondary py-3">
+    <div class="container">
+      <a href="index.html" class="text-decoration-none text-light d-flex align-items-center gap-2">
+        <i class="bi bi-arrow-left-circle fs-4" style="color: var(--primary-neon);"></i>
+        <span class="small text-uppercase fw-bold">Volver al Inicio</span>
+      </a>
+      <img src="logo.png" alt="Logo" class="nav-logo" onerror="this.style.display='none';">
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    
+    <!-- TÍTULO DEL SET -->
+    <div class="text-center mb-4">
+      <h1 class="fw-bold display-5 text-uppercase" style="color: var(--primary-neon); letter-spacing: 2px;">
+        Digital Delirium
+      </h1>
+      <p style="color:white;">VARIED ELECTRONIC MUSIC SET</p>
+    </div>
+
+    <!-- REPRODUCTOR DE AUDIO -->
+    <section class="mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="player-card p-4 text-center">
+            <h4 class="fw-bold mb-3" style="color: var(--secondary-neon);">REPRODUCIR SET</h4>
+            
+            <!-- REPRODUCTOR NATIVO -->
+            <audio id="main-audio" controls preload="metadata" style="width: 100%; height: 54px; border-radius: 12px; filter: drop-shadow(0 0 8px rgba(0,240,255,0.3));">
+              <source src="https://archive.org/download/digital-delirium-mian-mix/Digital%20Delirium%20-%20Mian%20Mix.wav" type="audio/wav">
+              Tu navegador no soporta el reproductor de audio.
+            </audio>
+
+            <!-- INDICADOR DE ESTADO Y BARRA DE PROGRESO DE BUFFER -->
+            <div id="audio-status-container" class="mt-3">
+              <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+                <div id="loading-spinner" class="spinner-border spinner-border-sm text-info" role="status">
+                  <span class="visually-hidden">Cargando...</span>
+                </div>
+                <span id="status-text" class="small fw-semibold text-info">Conectando con el servidor....</span>
+              </div>
+
+            <!-- BOTÓN DE DESCARGA DIRECTA -->
+            <div class="mt-4">
+              <a href="https://drive.google.com/uc?export=download&confirm=t&id=12Vua2_do5OYiFaw_th_Ps2Cs8kZF7Zij" download target="_blank" class="btn btn-outline-info rounded-pill px-4">
+                <i class="bi bi-download me-1"></i> Descargar Set MP3
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACKLIST CON ENLACES A YOUTUBE MUSIC -->
+    <section class="my-5">
+      <div class="d-flex align-items-center justify-content-center gap-2 mb-4">
+        <h2 class="fw-bold text-center m-0" style="color: var(--primary-neon); letter-spacing: 2px;">TRACKLIST (30 TRACKS)</h2>
+      </div>
+      <p class="text-center small mb-4" style="color:white;">Haz clic en cualquier canción para abrirla en YouTube Music <i class="bi bi-youtube text-danger"></i></p>
+      
+      <div class="row g-4">
+        
+        <!-- COLUMNA 1 (TRACKS 01 - 10) -->
+        <div class="col-md-4">
+          <h5 class="column-header">PARTE 1 (01 - 10)</h5>
+          
+          <a href="https://music.youtube.com/search?q=Mau+P+neck" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">01.</span> <span class="track-title">neck</span><br><small class="track-artist">Mau P</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Daft+Punk+Harder+Better+Faster+Stronger+deadmau5+Remix" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">02.</span> <span class="track-title">Harder, Better, Faster, Stronger (deadmau5 Remix)</span><br><small class="track-artist">Daft Punk</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Greece+2000+Max+Styler+Extended+Rework" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">03.</span> <span class="track-title">Greece 2000 (Max Styler Extended Rework)</span><br><small class="track-artist">Max Styler y Three Drives</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Attention+Whore+Melleefresh+deadmau5" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">04.</span> <span class="track-title">Attention Whore</span><br><small class="track-artist">Melleefresh y deadmau5</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Don%27t+Be+Afraid+Joris+Voorn+Ferry+Corsten" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">05.</span> <span class="track-title">Don't Be Afraid</span><br><small class="track-artist">Joris Voorn, Ferry Corsten y Moonman</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Silence+John+Summit+Remix+Delerium" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">06.</span> <span class="track-title">Silence (John Summit Remix)</span><br><small class="track-artist">Delerium, Sarah McLachlan</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=zorro+Extended+Mix+LSR+CITY" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">07.</span> <span class="track-title">zorro (Extended Mix)</span><br><small class="track-artist">LSR; CITY</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Delirium+Zomboy+Rykka" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">08.</span> <span class="track-title">Delirium</span><br><small class="track-artist">Zomboy, Rykka</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Internet+Friends+Knife+Party" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">09.</span> <span class="track-title">Internet Friends</span><br><small class="track-artist">Knife Party</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Power+Glove+Knife+Party" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">10.</span> <span class="track-title">Power Glove</span><br><small class="track-artist">Knife Party</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+        </div>
+
+        <!-- COLUMNA 2 (TRACKS 11 - 20) -->
+        <div class="col-md-4">
+          <h5 class="column-header">PARTE 2 (11 - 20)</h5>
+          
+          <a href="https://music.youtube.com/search?q=Call+My+Name+Cheryl" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">11.</span> <span class="track-title">Call My Name</span><br><small class="track-artist">Cheryl</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Turn+Me+On+David+Guetta" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">12.</span> <span class="track-title">Turn Me On</span><br><small class="track-artist">David Guetta</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Upside+Down+Jaden+Bojsen+David+Guetta" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">13.</span> <span class="track-title">Upside Down</span><br><small class="track-artist">Jaden Bojsen, David Guetta</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Dame+Un+Grrr+Provi+Remix" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">14.</span> <span class="track-title">Dame Un Grrr (Provi Remix Radio Edit)</span><br><small class="track-artist">Fantomel, Kate Linn y Provi</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Just+The+Way+You+Are+David+Guetta+Remix" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">15.</span> <span class="track-title">Just The Way You Are (David Guetta Remix)</span><br><small class="track-artist">Milky y David Guetta</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Bailando+Pietro+Massianello" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">16.</span> <span class="track-title">Bailando</span><br><small class="track-artist">Pietro, Massianello</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Mulalo+Nitefreak+Choujaa" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">17.</span> <span class="track-title">Mulalo</span><br><small class="track-artist">Nitefreak, Choujaa, Mavhungu</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Outside+Edit+DJ+Cuba" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">18.</span> <span class="track-title">Outside (Edit)</span><br><small class="track-artist">DJ Cuba</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Outside+Mike+Demero+Jemme" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">19.</span> <span class="track-title">Outside</span><br><small class="track-artist">Mike Demero, Jemme</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Revolution+R3HAB+NERVO+Ummet+Ozcan" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">20.</span> <span class="track-title">Revolution (Radio Mix)</span><br><small class="track-artist">R3HAB, NERVO, Ummet Ozcan</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+        </div>
+
+        <!-- COLUMNA 3 (TRACKS 21 - 30) -->
+        <div class="col-md-4">
+          <h5 class="column-header">PARTE 3 (21 - 30)</h5>
+          
+          <a href="https://music.youtube.com/search?q=Ridin+Dirty+Club+Mix+Joe+Bermudez" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">21.</span> <span class="track-title">Ridin' Dirty (Club Mix Radio Edit)</span><br><small class="track-artist">Joe Bermudez y Amanda Brigham</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Connect+Bonus+Track+The+Swiss" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">22.</span> <span class="track-title">Connect (Bonus Track)</span><br><small class="track-artist">The Swiss</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Holiday+Matisse+Sadko" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">23.</span> <span class="track-title">Holiday</span><br><small class="track-artist">Matisse & Sadko y Swedish Red Elephant</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=I+Dont+Like+You+Eva+Simons" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">24.</span> <span class="track-title">I Don't Like You</span><br><small class="track-artist">Eva Simons</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Used+To+Gino+G" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">25.</span> <span class="track-title">Used To</span><br><small class="track-artist">Gino G</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Sauti+Francis+Mercier" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">26.</span> <span class="track-title">Sauti</span><br><small class="track-artist">Francis Mercier, Faul & Wad</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Feeling+Awake+AC+Slater" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">27.</span> <span class="track-title">Feeling Awake</span><br><small class="track-artist">AC Slater</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Bingami+Yamil" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">28.</span> <span class="track-title">Bingami</span><br><small class="track-artist">Yamil</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=Rude+Boy+Geeyo+Ibra" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">29.</span> <span class="track-title">Rude Boy</span><br><small class="track-artist">Geeyo Ibra</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+
+          <a href="https://music.youtube.com/search?q=BODY+Levi+Future+Cartel" target="_blank" rel="noopener noreferrer" class="track-link">
+            <div class="track-info">
+              <span class="track-num">30.</span> <span class="track-title">BODY</span><br><small class="track-artist">Levi, Future Cartel y MVRIN</small>
+            </div>
+            <i class="bi bi-youtube yt-icon"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SCRIPT PARA CONTROLAR LA CARGA DEL AUDIO -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('main-audio');
+      const statusText = document.getElementById('status-text');
+      const spinner = document.getElementById('loading-spinner');
+
+      // Al iniciar la solicitud
+      audio.addEventListener('loadstart', () => {
+        statusText.innerText = 'Conectando con el servidor (1.2 GB)...';
+        spinner.style.display = 'inline-block';
+      });
+
+      // Mientras el audio se está amortiguando / cargando datos
+      audio.addEventListener('waiting', () => {
+        statusText.innerText = 'Cargando buffer de audio...';
+        statusText.className = 'small fw-semibold text-info';
+        spinner.style.display = 'inline-block';
+      });
+
+      // Cuando ya hay suficiente audio para empezar a reproducir
+      audio.addEventListener('canplay', () => {
+        statusText.innerText = '¡Listo para reproducir!';
+        statusText.className = 'small fw-semibold text-success';
+        spinner.style.display = 'none';
+      });
+
+      // Cuando está en reproducción
+      audio.addEventListener('playing', () => {
+        statusText.innerText = 'Reproduciendo MIAN Set...';
+        statusText.className = 'small fw-semibold text-success';
+        spinner.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
