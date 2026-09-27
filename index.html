@@ -88,14 +88,32 @@
 
     <h2 class="fw-bold mb-4" style="color: var(--primary-neon); letter-spacing: 2px;">SELECCIONA UN SET</h2>
 
+    <!-- BARRA DE BÚSQUEDA -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-8 col-lg-5">
+        <div class="input-group">
+          <span class="input-group-text bg-dark border-secondary text-info">
+            <i class="bi bi-search"></i>
+          </span>
+          <input 
+            type="text" 
+            id="search-input" 
+            class="form-control bg-dark text-light border-secondary shadow-none" 
+            placeholder="Buscar por título, género o artista..."
+            autocomplete="off"
+          >
+        </div>
+      </div>
+    </div>
+
     <!-- GRID DE SETS (3 TARJETAS POR FILA) -->
     <div class="row g-4 justify-content-center" id="sets-container">
-      <!-- Las tarjetas se generan dinámicamente desde la lista de abajo -->
+      <!-- Las tarjetas se generan dinámicamente desde el script -->
     </div>
 
   </div>
 
-<script>
+  <script>
     // LISTA MASTER DE SETS
     const sets = [
       {
@@ -131,26 +149,55 @@
       /* Cuando hagas el Set 4, 5, 6... simplemente agregas el objeto aquí abajo */
     ];
 
-    // DIBUJA AUTOMÁTICAMENTE SOLO LOS SETS VISIBLES EN PANTALLA
     const container = document.getElementById('sets-container');
+    const searchInput = document.getElementById('search-input');
 
-    sets.filter(set => set.visible).forEach(set => {
-      const cardCol = document.createElement('div');
-      cardCol.className = 'col-12 col-md-6 col-lg-4';
-      
-      cardCol.innerHTML = `
-        <a href="${set.url}" class="set-card" style="border-color: ${set.colorPrimary}40;">
-          <img src="${set.img}" alt="${set.title} Cover" class="cover-img mb-3" onerror="this.src='Images/set1_11.png'">
-          <h4 class="fw-bold text-uppercase" style="color: ${set.colorPrimary};">${set.title}</h4>
-          <p class="small mb-2" style="color:white;">${set.desc}</p>
-          <div>
-            <i class="bi bi-hand-index-thumb-fill pointing-hand me-1" style="color: ${set.colorPrimary};"></i>
-            <span class="small fw-bold text-uppercase" style="color: ${set.colorSecondary};">Escuchar Set ${set.id}</span>
-          </div>
-        </a>
-      `;
-      container.appendChild(cardCol);
+    // DIBUJA Y FILTRA LOS SETS EN PANTALLA
+    function renderSets(filterQuery = "") {
+      container.innerHTML = "";
+      const query = filterQuery.toLowerCase().trim();
+
+      const filteredSets = sets.filter(set => {
+        if (!set.visible) return false;
+        const matchesTitle = set.title.toLowerCase().includes(query);
+        const matchesDesc = set.desc.toLowerCase().includes(query);
+        return matchesTitle || matchesDesc;
+      });
+
+      if (filteredSets.length === 0) {
+        container.innerHTML = `
+          <div class="col-12 my-4">
+            <p class="text-muted">No se encontraron sets que coincidan con "${filterQuery}".</p>
+          </div>`;
+        return;
+      }
+
+      filteredSets.forEach(set => {
+        const cardCol = document.createElement('div');
+        cardCol.className = 'col-12 col-md-6 col-lg-4';
+        
+        cardCol.innerHTML = `
+          <a href="${set.url}" class="set-card" style="border-color: ${set.colorPrimary}40;">
+            <img src="${set.img}" alt="${set.title} Cover" class="cover-img mb-3" onerror="this.src='Images/set1_11.png'">
+            <h4 class="fw-bold text-uppercase" style="color: ${set.colorPrimary};">${set.title}</h4>
+            <p class="small mb-2" style="color:white;">${set.desc}</p>
+            <div>
+              <i class="bi bi-hand-index-thumb-fill pointing-hand me-1" style="color: ${set.colorPrimary};"></i>
+              <span class="small fw-bold text-uppercase" style="color: ${set.colorSecondary};">Escuchar Set ${set.id}</span>
+            </div>
+          </a>
+        `;
+        container.appendChild(cardCol);
+      });
+    }
+
+    // Escuchar la búsqueda en tiempo real
+    searchInput.addEventListener('input', (e) => {
+      renderSets(e.target.value);
     });
+
+    // Carga inicial
+    renderSets();
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
