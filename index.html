@@ -22,9 +22,16 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: url('fondo.jpg') center/cover no-repeat;
+      background: url('Images/fondo.jpg') center/cover no-repeat;
       filter: blur(20px) brightness(0.4);
       z-index: -1;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .logo-img {
@@ -35,7 +42,7 @@
 
     .set-card {
       background: var(--card-bg);
-      border: 1px solid rgba(0, 240, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 20px;
       padding: 20px;
       transition: all 0.3s ease;
@@ -47,13 +54,9 @@
 
     .set-card:hover {
       transform: translateY(-8px);
-      border-color: var(--primary-neon);
       box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3), 0 0 20px rgba(255, 0, 127, 0.3);
     }
-    .set-card-gold:hover {
-      border-color: #ff9d00 !important;
-      box-shadow: 0 10px 30px rgba(255, 157, 0, 0.4), 0 0 20px rgba(255, 51, 0, 0.3) !important;
-    }
+
     .cover-img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -63,8 +66,7 @@
     }
 
     .pointing-hand {
-      font-size: 2rem;
-      color: var(--primary-neon);
+      font-size: 1.8rem;
       animation: bounceHand 1.2s infinite ease-in-out;
       display: inline-block;
     }
@@ -81,43 +83,76 @@
     
     <!-- LOGO MIAN -->
     <div class="mb-5">
-      <img src="logo.png" alt="MIAN Logo" class="logo-img img-fluid">
+      <img src="Images/logo.png" alt="MIAN Logo" class="logo-img img-fluid">
     </div>
 
     <h2 class="fw-bold mb-4" style="color: var(--primary-neon); letter-spacing: 2px;">SELECCIONA UN SET</h2>
 
-    <!-- GRID DE SETS (2 COLUMNAS) -->
-    <div class="row g-4 justify-content-center">
-      
-      <!-- SET 1: DIGITAL DELIRIUM -->
-      <div class="col-md-5 col-lg-4">
-        <a href="set1.html" class="set-card">
-          <img src="set1_11.png" alt="Digital Delirium Cover" class="cover-img mb-3">
-          <h4 class="fw-bold text-uppercase" style="color: var(--primary-neon);">Digital Delirium</h4>
-          <p class="small mb-2" style="color:white;">30 Tracks - Tech / Progressive / Bass</p>
-          <div>
-            <i class="bi bi-hand-index-thumb-fill pointing-hand me-1"></i>
-            <span class="small fw-bold text-uppercase" style="color: var(--secondary-neon);">Escuchar Set 1</span>
-          </div>
-        </a>
-      </div>
-      <!-- SET 2: HOUSE NATION -->
-      <div class="col-md-5 col-lg-4">
-        <a href="set2.html" class="set-card set-card-gold">
-          <!-- Asegúrate de que el nombre coincida con tu imagen cuadrada -->
-          <img src="set2_11.png" alt="House Nation Cover" class="cover-img mb-3">
-          <h4 class="fw-bold text-uppercase" style="color: #ff9d00;">House Nation</h4>
-          <p class="small mb-2" style="color:white;">14 Tracks - Vocal House / Festival EDM</p>
-          <div>
-            <i class="bi bi-hand-index-thumb-fill pointing-hand me-1" style="color: #ff9d00;"></i>
-            <span class="small fw-bold text-uppercase" style="color: #ff3300;">Escuchar Set 2</span>
-          </div>
-        </a>
-      </div>
-
+    <!-- GRID DE SETS (3 TARJETAS POR FILA) -->
+    <div class="row g-4 justify-content-center" id="sets-container">
+      <!-- Las tarjetas se generan dinámicamente desde la lista de abajo -->
     </div>
 
   </div>
 
+<script>
+    // LISTA MASTER DE SETS
+    const sets = [
+      {
+        id: 1,
+        title: "Digital Delirium",
+        desc: "30 Tracks - Tech / Progressive / Bass",
+        img: "Images/set1_11.png",
+        url: "Sets/set1.html",
+        colorPrimary: "#00f0ff",
+        colorSecondary: "#ff007f",
+        visible: true
+      },
+      {
+        id: 2,
+        title: "House Nation",
+        desc: "14 Tracks - Vocal House / Festival EDM",
+        img: "Images/set2_11.png",
+        url: "Sets/set2.html",
+        colorPrimary: "#ff9d00",
+        colorSecondary: "#ff3300",
+        visible: true
+      },
+      {
+        id: 3,
+        title: "deadmau5 Mix",
+        desc: "15 Tracks - Progressive House / Electro",
+        img: "Images/set3_11.jpg",
+        url: "Sets/set3.html",
+        colorPrimary: "#ff0055",
+        colorSecondary: "#00ffcc",
+        visible: true
+      }
+      /* Cuando hagas el Set 4, 5, 6... simplemente agregas el objeto aquí abajo */
+    ];
+
+    // DIBUJA AUTOMÁTICAMENTE SOLO LOS SETS VISIBLES EN PANTALLA
+    const container = document.getElementById('sets-container');
+
+    sets.filter(set => set.visible).forEach(set => {
+      const cardCol = document.createElement('div');
+      cardCol.className = 'col-12 col-md-6 col-lg-4';
+      
+      cardCol.innerHTML = `
+        <a href="${set.url}" class="set-card" style="border-color: ${set.colorPrimary}40;">
+          <img src="${set.img}" alt="${set.title} Cover" class="cover-img mb-3" onerror="this.src='Images/set1_11.png'">
+          <h4 class="fw-bold text-uppercase" style="color: ${set.colorPrimary};">${set.title}</h4>
+          <p class="small mb-2" style="color:white;">${set.desc}</p>
+          <div>
+            <i class="bi bi-hand-index-thumb-fill pointing-hand me-1" style="color: ${set.colorPrimary};"></i>
+            <span class="small fw-bold text-uppercase" style="color: ${set.colorSecondary};">Escuchar Set ${set.id}</span>
+          </div>
+        </a>
+      `;
+      container.appendChild(cardCol);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
