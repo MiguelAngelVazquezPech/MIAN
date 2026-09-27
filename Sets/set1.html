@@ -107,6 +107,20 @@
       font-weight: 700;
       letter-spacing: 1px;
     }
+    .set-header-cover {
+      max-width: 260px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 240, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .set-header-cover:hover {
+      transform: scale(1.03);
+    }
   </style>
 </head>
 <body>
@@ -129,6 +143,9 @@
       <h1 class="fw-bold display-5 text-uppercase" style="color: var(--primary-neon); letter-spacing: 2px;">
         Digital Delirium
       </h1>
+      <div class="my-3">
+        <img src="../Images/set1_11.png" alt="Portada" class="set-header-cover img-fluid">
+      </div>
       <p style="color:white;">VARIED ELECTRONIC MUSIC SET</p>
     </div>
 
@@ -414,7 +431,7 @@
 
       // Al iniciar la solicitud
       audio.addEventListener('loadstart', () => {
-        statusText.innerText = 'Conectando con el servidor...';
+        statusText.innerText = 'Conectando con el servidor (1.2 GB)...';
         spinner.style.display = 'inline-block';
       });
 
