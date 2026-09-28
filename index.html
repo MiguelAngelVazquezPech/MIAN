@@ -50,6 +50,7 @@
       color: inherit;
       display: block;
       height: 100%;
+      position: relative;
     }
 
     .set-card:hover {
@@ -63,6 +64,15 @@
       object-fit: cover;
       border-radius: 14px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .year-badge {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .pointing-hand {
@@ -99,7 +109,7 @@
             type="text" 
             id="search-input" 
             class="form-control bg-dark text-light border-secondary shadow-none" 
-            placeholder="Buscar por título, género o artista..."
+            placeholder="Buscar por título, género, mes o año (ej: Abril, 2020)..."
             autocomplete="off"
           >
         </div>
@@ -114,11 +124,20 @@
   </div>
 
   <script>
+    // NOMBRES DE LOS MESES PARA MOSTRAR Y FILTRAR
+    const monthNames = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
     // LISTA MASTER DE SETS
+    // 'month' es el número del mes (1 = Enero, 12 = Diciembre)
     const sets = [
       {
         id: 1,
         title: "Digital Delirium",
+        year: 2026,
+        month: 9, 
         desc: "30 Tracks - Tech / Progressive / Bass",
         img: "Images/set1_11.png",
         url: "Sets/set1.html",
@@ -129,6 +148,8 @@
       {
         id: 2,
         title: "House Nation",
+        year: 2026,
+        month: 9,
         desc: "14 Tracks - Vocal House / Festival EDM",
         img: "Images/set2_11.png",
         url: "Sets/set2.html",
@@ -139,6 +160,8 @@
       {
         id: 3,
         title: "deadmau5 Mix",
+        year: 2024,
+        month: 4,
         desc: "15 Tracks - Progressive House / Electro",
         img: "Images/set3_11.jpg",
         url: "Sets/set3.html",
@@ -146,41 +169,79 @@
         colorSecondary: "#00ffcc",
         visible: true
       }
-      /* Cuando hagas el Set 4, 5, 6... simplemente agregas el objeto aquí abajo */
+      /* Para tus sets de 2019/2020 agregas por ejemplo:
+      {
+        id: 4,
+        title: "Session 2019.04",
+        year: 2019,
+        month: 4, // Abril
+        desc: "Grabado en Vivo - Tech & Progressive",
+        img: "Images/set4_11.jpg",
+        url: "Sets/set4.html",
+        colorPrimary: "#00f0ff",
+        colorSecondary: "#ff007f",
+        visible: true
+      }
+      */
     ];
 
     const container = document.getElementById('sets-container');
     const searchInput = document.getElementById('search-input');
 
-    // DIBUJA Y FILTRA LOS SETS EN PANTALLA
+    // DIBUJA, ORDENA Y FILTRA LOS SETS EN PANTALLA
     function renderSets(filterQuery = "") {
       container.innerHTML = "";
       const query = filterQuery.toLowerCase().trim();
 
+      // 1. Filtrar sets por Título, Descripción, Año o Mes (nombre o número)
       const filteredSets = sets.filter(set => {
         if (!set.visible) return false;
+
+        const mName = monthNames[set.month - 1].toLowerCase();
+        const mNum = set.month.toString();
+        const mNumPad = set.month.toString().padStart(2, '0'); // '04', '06', etc.
+
         const matchesTitle = set.title.toLowerCase().includes(query);
         const matchesDesc = set.desc.toLowerCase().includes(query);
-        return matchesTitle || matchesDesc;
+        const matchesYear = set.year.toString().includes(query);
+        const matchesMonth = mName.includes(query) || mNum === query || mNumPad === query;
+
+        return matchesTitle || matchesDesc || matchesYear || matchesMonth;
       });
 
+      // 2. Ordenar cronológicamente: Primero por AÑO (descendente), luego por MES (descendente)
+      filteredSets.sort((a, b) => {
+        if (b.year !== a.year) {
+          return b.year - a.year;
+        }
+        return b.month - a.month;
+      });
+
+      // Si no hay resultados
       if (filteredSets.length === 0) {
         container.innerHTML = `
           <div class="col-12 my-4">
-            <p style="color:white;">No se encontraron sets que coincidan con "${filterQuery}".</p>
+            <p class="text-muted">No se encontraron sets que coincidan con "${filterQuery}".</p>
           </div>`;
         return;
       }
 
+      // 3. Renderizar las tarjetas
       filteredSets.forEach(set => {
         const cardCol = document.createElement('div');
         cardCol.className = 'col-12 col-md-6 col-lg-4';
+        const displayMonth = monthNames[set.month - 1];
         
         cardCol.innerHTML = `
           <a href="${set.url}" class="set-card" style="border-color: ${set.colorPrimary}40;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="year-badge text-uppercase fw-semibold" style="color: ${set.colorPrimary}; border-color: ${set.colorPrimary}60;">
+                <i class="bi bi-calendar3 me-1"></i>Rec. ${displayMonth} ${set.year}
+              </span>
+            </div>
             <img src="${set.img}" alt="${set.title} Cover" class="cover-img mb-3" onerror="this.src='Images/set1_11.png'">
             <h4 class="fw-bold text-uppercase" style="color: ${set.colorPrimary};">${set.title}</h4>
-            <p class="small mb-2" style="color:white;">${set.desc}</p>
+            <p class="small mb-3" style="color:white;">${set.desc}</p>
             <div>
               <i class="bi bi-hand-index-thumb-fill pointing-hand me-1" style="color: ${set.colorPrimary};"></i>
               <span class="small fw-bold text-uppercase" style="color: ${set.colorSecondary};">Escuchar Set ${set.id}</span>
