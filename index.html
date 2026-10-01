@@ -3,944 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>MIAN - Official DJ Sets</title>
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="description" content="Escucha mis últimos DJ Sets de Tech House, Techno y Electronic Music en alta calidad.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MIAN | Official DJ Sets & Music Portfolio">
+  <meta property="og:title" content="MIAN | Official DJ Sets &amp; Music Portfolio">
   <meta property="og:description" content="Escucha mis últimos DJ Sets de Tech House, Techno y Electronic Music en alta calidad.">
   <meta property="og:image" content="https://djmianvazquez.com/Images/Logo_Search.webp">
   <meta property="og:url" content="https://djmianvazquez.com">
   <link rel="icon" type="image/x-icon" href="Images/logo.ico">
-
-  <title>MIAN - Official DJ Sets</title>
-  
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-  <style>
-    :root {
-      --primary-neon: #00f0ff;
-      --secondary-neon: #ff007f;
-      --bg-dark: #0a0a0f;
-      --card-bg: #12131c;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: url('Images/fondo.webp') center/cover no-repeat;
-      filter: blur(20px) brightness(0.4);
-      z-index: -1;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: #ffffff;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .logo-img {
-      max-height: 200px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));
-    }
-
-    .set-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px;
-      transition: all 0.3s ease;
-      text-decoration: none !important;
-      color: inherit;
-      display: block;
-      height: 100%;
-      position: relative;
-    }
-
-    .set-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3), 0 0 20px rgba(255, 0, 127, 0.3);
-    }
-
-    .cover-img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .year-badge {
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      padding: 4px 10px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .pointing-hand {
-      font-size: 1.8rem;
-      animation: bounceHand 1.2s infinite ease-in-out;
-      display: inline-block;
-    }
-
-    @keyframes bounceHand {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-    .main-footer {
-      width: 100%;
-      background-color: #080a0f;
-      border-top: 1px solid rgba(0, 229, 255, 0.2);
-      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.6);
-      color: #a0a5b5;
-      padding: 40px 20px 25px 20px;
-      margin-top: 80px;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    .footer-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer-logo {
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: 3px;
-      color: #ffffff;
-      margin: 0;
-      text-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
-    }
-
-    .footer-tagline {
-      font-size: 0.85rem;
-      color: #62697a;
-      margin: 4px 0 0 0;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-links a {
-      color: #b0b8c8;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: all 0.25s ease;
-    }
-
-    .footer-links a:hover {
-      color: #00e5ff;
-      border-color: rgba(0, 229, 255, 0.4);
-      background: rgba(0, 229, 255, 0.08);
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .footer-links svg {
-      transition: transform 0.25s ease;
-    }
-
-    .footer-links a:hover svg {
-      transform: scale(1.1);
-    }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 20px auto 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.8rem;
-      color: #525866;
-    }
-
-    .footer-bottom strong {
-      color: #d0d5e0;
-    }
-
-    .footer-host-note {
-      font-size: 0.75rem;
-      color: #404654;
-    }
-
-    /* Responsivo para celulares */
-    @media (max-width: 650px) {
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        justify-content: center;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+  <!-- El fondo se pide en paralelo con el CSS en vez de esperar a que se lea -->
+  <link rel="preload" as="image" href="Images/fondo.webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="i-music-note-list" viewBox="0 0 16 16"><path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+  <path fill-rule="evenodd" d="M12 3v10h-1V3h1z"/>
+  <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"/>
+  <path fill-rule="evenodd" d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/></symbol><symbol id="i-disc" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1zm4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5z"/></symbol><symbol id="i-shuffle" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"/>
+  <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/></symbol><symbol id="i-clock-history" viewBox="0 0 16 16"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+  <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+  <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/></symbol><symbol id="i-link-45deg" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></symbol><symbol id="i-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></symbol><symbol id="i-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></symbol><symbol id="i-chat-dots-fill" viewBox="0 0 16 16"><path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></symbol><symbol id="i-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></symbol><symbol id="i-calendar3" viewBox="0 0 16 16"><path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+  <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></symbol><symbol id="i-hand-index-thumb-fill" viewBox="0 0 16 16"><path d="M8.5 1.75v2.716l.047-.002c.312-.012.742-.016 1.051.046.28.056.543.18.738.288.273.152.456.385.56.642l.132-.012c.312-.024.794-.038 1.158.108.37.148.689.487.88.716.075.09.141.175.195.248h.582a2 2 0 0 1 1.99 2.199l-.272 2.715a3.5 3.5 0 0 1-.444 1.389l-1.395 2.441A1.5 1.5 0 0 1 12.42 16H6.118a1.5 1.5 0 0 1-1.342-.83l-1.215-2.43L1.07 8.589a1.517 1.517 0 0 1 2.373-1.852L5 8.293V1.75a1.75 1.75 0 0 1 3.5 0z"/></symbol></svg>
 
-  <div class="container text-center py-5">
+  <!-- CAPA DE FONDO DIFUMINADO -->
+  <div class="bg-fixed-blur" aria-hidden="true"></div>
+
+  <!-- MENÚ FLOTANTE -->
+  <div class="fab-backdrop" id="fabBackdrop" aria-hidden="true"></div>
+  <div class="fab-menu" id="fabMenu" hidden="true">
+    <nav class="fab-options" id="fabOptions" aria-label="Navegación principal">
+      <a href="index.html" class="active" aria-current="page"><svg class="ico"><use href="#i-music-note-list"/></svg><span>Mixes</span></a>
+      <a href="originales.html"><svg class="ico"><use href="#i-disc"/></svg><span>Originales</span></a>
+      <a href="mashups.html"><svg class="ico"><use href="#i-shuffle"/></svg><span>Mashups</span></a>
+      <a href="inicios.html"><svg class="ico"><use href="#i-clock-history"/></svg><span>Mis Inicios</span></a>
+      <a href="links.html"><svg class="ico"><use href="#i-link-45deg"/></svg><span>Links</span></a>
+    </nav>
+    <button class="fab-main" id="fabToggle" type="button" aria-expanded="false" aria-controls="fabOptions" aria-label="Abrir menú">
+      <svg class="ico ico-open"><use href="#i-list"/></svg><svg class="ico ico-close"><use href="#i-x-lg"/></svg>
+    </button>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container text-center py-4">
+
     <!-- LOGO MIAN -->
     <div class="mb-1">
-      <img src="Images/logo.webp" alt="MIAN Logo" class="logo-img img-fluid">
+      <img src="Images/logo.webp" alt="MIAN Logo" class="logo-img" width="640" height="465" fetchpriority="high">
     </div>
 
     <div class="mb-4">
       <a href="contacto.html" class="btn btn-outline-info rounded-pill px-3 py-2 shadow-sm d-inline-flex align-items-center gap-2">
-        <i class="bi bi-chat-dots-fill"></i>
+        <svg class="ico"><use href="#i-chat-dots-fill"/></svg>
         <span class="small fw-semibold text-uppercase">Contacto Anónimo</span>
       </a>
     </div>
 
-    <h2 class="fw-bold mb-4" style="color: var(--primary-neon); letter-spacing: 2px;">SELECCIONA UN SET</h2>
+    <h2 class="fw-bold mb-4 page-title">SELECCIONA UN SET</h2>
 
     <!-- BARRA DE BÚSQUEDA -->
     <div class="row justify-content-center mb-5">
       <div class="col-md-8 col-lg-5">
         <div class="input-group">
           <span class="input-group-text bg-dark border-secondary text-info">
-            <i class="bi bi-search"></i>
+            <svg class="ico"><use href="#i-search"/></svg>
           </span>
-          <input 
-            type="text" 
-            id="search-input" 
-            class="form-control bg-dark text-light border-secondary shadow-none" 
+          <input
+            type="text"
+            id="search-input"
+            class="form-control bg-dark text-light border-secondary shadow-none"
             placeholder="Buscar por título, género, mes o año (ej: Abril, 2020)..."
+            aria-label="Buscar sets"
             autocomplete="off"
           >
         </div>
       </div>
     </div>
 
-    <!-- GRID DE SETS (3 TARJETAS POR FILA) -->
-    <div class="row g-4 justify-content-center" id="sets-container">
-      <!-- Las tarjetas se generan dinámicamente desde el script -->
-    </div>
+    <!-- GRID DE SETS (se genera desde el script) -->
+    <div class="row g-4 justify-content-center" id="sets-container"></div>
 
-  </div>
+  </main>
+
+  <footer class="main-footer">
+<div class="footer-content">
+<div class="footer-brand">
+<h2 class="footer-logo">MIAN</h2>
+<p class="footer-tagline">Electronic Music & Live DJ Sets</p>
+</div>
+<div class="footer-links">
+<a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener" aria-label="YouTube">
+<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+<span>YouTube</span>
+</a>
+<a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener" aria-label="Facebook">
+<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+<span>Facebook</span>
+</a>
+<a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener" aria-label="Instagram">
+<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+<span>Instagram</span>
+</a>
+<a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener" aria-label="SoundCloud">
+<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
+<span>SoundCloud</span>
+</a>
+<a href="https://github.com/MiguelAngelVazquezPech" target="_blank" rel="noopener" aria-label="GitHub">
+<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+<span>GitHub</span>
+</a>
+<a href="contacto.html" aria-label="Contacto por Correo">
+<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+<span>Contacto</span>
+</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 <strong>MIAN</strong>. Todos los derechos reservados.</p>
+<p class="footer-host-note">Audio streaming alojado en Internet Archive.</p>
+</div>
+</footer>
 
   <script>
-    // NOMBRES DE LOS MESES PARA MOSTRAR Y FILTRAR
     const monthNames = [
       "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
       "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
     ];
 
-    // LISTA MASTER DE SETS
-    // 'month' es el número del mes (1 = Enero, 12 = Diciembre)
+    // LISTA MASTER DE SETS  ·  para agregar uno nuevo, copia una línea y cambia los datos
+    // 'month' es el número del mes (1 = Enero, 12 = Diciembre)  ·  visible:false lo oculta
     const sets = [
-      {
-        id: 1,
-        title: "Digital Delirium",
-        year: 2026,
-        month: 9, 
-        desc: "30 Tracks - Tech / Progressive / Bass",
-        img: "Images/Digital_Delirium_11.webp",
-        url: "Sets/Digital_Delirium.html",
-        colorPrimary: "#00f0ff",
-        colorSecondary: "#ff007f",
-        visible: true
-      },
-      {
-        id: 2,
-        title: "House Nation",
-        year: 2026,
-        month: 9,
-        desc: "14 Tracks - Vocal House / Festival EDM",
-        img: "Images/House_Nation_11.webp",
-        url: "Sets/House_Nation.html",
-        colorPrimary: "#ff9d00",
-        colorSecondary: "#ff3300",
-        visible: true
-      },
-      {
-        id: 3,
-        title: "deadmau5 Mix",
-        year: 2024,
-        month: 4,
-        desc: "15 Tracks - Progressive House / Electro",
-        img: "Images/Mix_Deadmau5_11.webp",
-        url: "Sets/Mix_Deadmau5.html",
-        colorPrimary: "#ff0055",
-        colorSecondary: "#00ffcc",
-        visible: true
-      },
-      {
-        id: 4,
-        title: "Mix Febrero 2015",
-        year: 2015,
-        month: 2,
-        desc: "19 Tracks - Big Room / Melbourne Bounce / Future House",
-        img: "Images/Mix_Febrero_2015_11.webp",
-        url: "Sets/Mix_Febrero_2015.html",
-        colorPrimary: "#ffb700",
-        colorSecondary: "#ff0055",
-        visible: true
-      },
-      {
-        id: 5,
-        title: "Mix Diciembre 2016",
-        year: 2016,
-        month: 12,
-        desc: "18 Tracks - Future House / Bass House / Exclusive Mashups",
-        img: "Images/Mix_Diciembre_2016_11.webp",
-        url: "Sets/Mix_Diciembre_2016.html",
-        colorPrimary: "#a855f7",
-        colorSecondary: "#00f0ff",
-        visible: true
-      },
-      {
-        id: 6,
-        title: "Mix Octubre 2017",
-        year: 2017,
-        month: 10,
-        desc: "12 Tracks - Bass House / Future Bounce / Electro House",
-        img: "Images/Mix_Octubre_2017_11.webp",
-        url: "Sets/Mix_Octubre_2017.html",
-        colorPrimary: "#39ff14",
-        colorSecondary: "#b000ff",
-        visible: true
-      },
-      {
-      id: 7,
-      title: "Mix Otoño 2017",
-      year: 2017,
-      month: 11,
-      desc: "24 Tracks - Big Room / Electro House / Festival Bootlegs",
-      img: "Images/Mix_Otono_2017_11.webp",
-      url: "Sets/Mix_Otono_2017.html",
-      colorPrimary: "#ff5500",
-      colorSecondary: "#ffcc00",
-      visible: true
-      },
-      {
-      id: 8,
-      title: "Mix Random 2017",
-      year: 2017,
-      month: 12,
-      desc: "12 Tracks - Progressive House / Tech House / Electro",
-      img: "Images/Mix_Random_2017_11.webp",
-      url: "Sets/Mix_Random_2017.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#7000ff",
-      visible: true
-    },
-    {
-      id: 9,
-      title: "Mix Marzo 2018",
-      year: 2018,
-      month: 3,
-      desc: "13 Tracks - Commercial EDM / Electro House / Pop Remixes",
-      img: "Images/Mix_Marzo_2018_11.webp",
-      url: "Sets/Mix_Marzo_2018.html",
-      colorPrimary: "#00e5ff",
-      colorSecondary: "#ff007f",
-      visible: true
-    },
-    {
-      id: 10,
-      title: "Mix Abril 2018",
-      year: 2018,
-      month: 4,
-      desc: "14 Tracks - Future Bounce / Bass House / Electro House",
-      img: "Images/Mix_Abril_2018_11.webp",
-      url: "Sets/Mix_Abril_2018.html",
-      colorPrimary: "#00ff88",
-      colorSecondary: "#00a2ff",
-      visible: true
-    },
-    {
-      id: 11,
-      title: "Mix Agosto 2018",
-      year: 2018,
-      month: 8,
-      desc: "14 Tracks - Big Room / Psytrance / Bass House",
-      img: "Images/Mix_Agosto_2018_11.webp",
-      url: "Sets/Mix_Agosto_2018.html",
-      colorPrimary: "#ff0033",
-      colorSecondary: "#ffee00",
-      visible: true
-    },
-    {
-      id: 12,
-      title: "Mix Diciembre 2018",
-      year: 2018,
-      month: 12,
-      desc: "24 Tracks - Big Room / Bass House / Electro House",
-      img: "Images/Mix_Diciembre_2018_11.webp",
-      url: "Sets/Mix_Diciembre_2018.html",
-      colorPrimary: "#ff0055",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 13,
-      title: "Mix Abril 2019",
-      year: 2019,
-      month: 4,
-      desc: "18 TRACKS - Future Bounce / Tech House / Tribal Electro",
-      img: "Images/Mix_Abril_2019_11.webp",
-      url: "Sets/Mix_Abril_2019.html",
-      colorPrimary: "#00ff88",
-      colorSecondary: "#00e5ff",
-      visible: true
-    },
-    {
-      id: 14,
-      title: "Mix Junio 2019",
-      year: 2019,
-      month: 6,
-      desc: "27 Tracks - Guaracha / Aleteo / Tribal House",
-      img: "Images/Mix_Junio_2019_11.webp",
-      url: "Sets/Mix_Junio_2019.html",
-      colorPrimary: "#ccff00",
-      colorSecondary: "#ff4500",
-      visible: true
-    },
-    {
-      id: 15,
-      title: "Mix Oliver Heldens / HI-LO Vol. 1",
-      year: 2023,
-      month: 4,
-      desc: "25 Tracks - Future House / Nu-Disco / Techno",
-      img: "Images/Mix_OH_Vol_1_2023_11.webp",
-      url: "Sets/Mix_OH_Vol_1_2023.html",
-      colorPrimary: "#00d2ff",
-      colorSecondary: "#9b51e0",
-      visible: true
-    },
-    {
-      id: 16,
-      title: "Mix Oliver Heldens / Hilo Vol. 2",
-      year: 2024,
-      month: 1,
-      desc: "25 Tracks - Future House / Bass House / Techno",
-      img: "Images/Mix_OH_Vol_2_2024_11.webp",
-      url: "Sets/Mix_OH_Vol_2_2024.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#ff007f",
-      visible: true
-    },
-    {
-      id: 17,
-      title: "Mix 80's y 90's Vol. 1",
-      year: 2022,
-      month: 11,
-      desc: "20 Tracks - Disco / Eurodance / 80's & 90's Retro Classics",
-      img: "Images/Mix_80s_y_90s_Vol_1_11.webp",
-      url: "Sets/Mix_80s_y_90s_Vol_1.html",
-      colorPrimary: "#ff007f",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 18,
-      title: "Mix 80's y 90's Vol. 2",
-      year: 2024,
-      month: 7,
-      desc: "25 Tracks - Eurodance / 80's & 90's Pop / Dance Classics",
-      img: "Images/Mix_80s_y_90s_Vol_2_11.webp",
-      url: "Sets/Mix_80s_y_90s_Vol_2.html",
-      colorPrimary: "#ff007f",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 19,
-      title: "Mix Cumbia Vol. 1",
-      year: 2023,
-      month: 6,
-      desc: "25 Tracks - Cumbia Clásica / Cumbia Sonidera / Tropical Remixes",
-      img: "Images/Mix_Cumbia_Vol_1_11.webp",
-      url: "Sets/Mix_Cumbia_Vol_1.html",
-      colorPrimary: "#ffcc00",
-      colorSecondary: "#ff0055",
-      visible: true
-    },
-    {
-      id: 20,
-      title: "Mix Salsa Vol. 1",
-      year: 2023,
-      month: 6,
-      desc: "17 Tracks - Salsa Clásica / Salsa Dura / Salsa Tropical",
-      img: "Images/Mix_Salsa_Vol_1_11.webp",
-      url: "Sets/Mix_Salsa_Vol_1.html",
-      colorPrimary: "#ff0044",
-      colorSecondary: "#00ff66",
-      visible: true
-    },
-    {
-      id: 21,
-      title: "Mix Merengue Vol. 1",
-      year: 2023,
-      month: 6,
-      desc: "25 Tracks - Merengue Clásico / Mambo / Tropical Fiesta",
-      img: "Images/Mix_Merengue_Vol_1_11.webp",
-      url: "Sets/Mix_Merengue_Vol_1.html",
-      colorPrimary: "#ffe600",
-      colorSecondary: "#00e64d",
-      visible: true
-    },
-    {
-      id: 22,
-      title: "Mix Banda y Quebradita Vol. 1",
-      year: 2023,
-      month: 6,
-      desc: "20 Tracks - Banda / Quebradita / Baile Regional",
-      img: "Images/Mix_Banda_y_Quebradita_Vol_1_11.webp",
-      url: "Sets/Mix_Banda_y_Quebradita_Vol_1.html",
-      colorPrimary: "#ff6600",
-      colorSecondary: "#00ccff",
-      visible: true
-    },
-    {
-      id: 23,
-      title: "Megamix Multigénero",
-      year: 2023,
-      month: 12,
-      desc: "Especial 3h 26min - Cumbia, Salsa, Merengue & Banda",
-      img: "Images/Megamix_Multigenero_11.webp",
-      url: "Sets/Megamix_Multigenero.html",
-      colorPrimary: "#ff0055",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 24,
-      title: "🔥✘GUARACHA MIX 2021✘🔥",
-      year: 2021,
-      month: 9,
-      desc: "26 Tracks - Guaracha / Tribal House / Aleteo",
-      img: "Images/Guaracha_Mix_Septiembre_2021_11.webp",
-      url: "Sets/Guaracha_Mix_Septiembre_2021.html",
-      colorPrimary: "#39ff14",
-      colorSecondary: "#d600ff",
-      visible: true
-    },
-    {
-      id: 25,
-      title: "🔥✘GUARACHA MIX 2022✘🔥",
-      year: 2022,
-      month: 2,
-      desc: "23 Tracks - Guaracha / Tribal House / Electro Aleteo",
-      img: "Images/Guaracha_Mix_2022_11.webp",
-      url: "Sets/Guaracha_Mix_2022.html",
-      colorPrimary: "#ff6600",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 26,
-      title: "🔥✘GUARACHA | CIRCUIT MIX 2022✘🔥",
-      year: 2022,
-      month: 6,
-      desc: "26 Tracks - Circuit House / Guaracha / Tribal Edits",
-      img: "Images/Guaracha_Circuit_Mix_2022_11.webp",
-      url: "Sets/Guaracha_Circuit_Mix_2022.html",
-      colorPrimary: "#9900ff",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 27,
-      title: "🔥✘MIX TRIVANS 2022✘🔥",
-      year: 2022,
-      month: 9,
-      desc: "15 Tracks - Tribal House / Latin Club / Trivans Edits",
-      img: "Images/Mix_Trivans_11.webp",
-      url: "Sets/Mix_Trivans.html",
-      colorPrimary: "#00ffaa",
-      colorSecondary: "#ffaa00",
-      visible: true
-    },
-    {
-      id: 28,
-      title: "✨ Tech House Mix 2022 ✨",
-      year: 2022,
-      month: 3,
-      desc: "10 Tracks - Tech House / Peak-Time / Club Mashups",
-      img: "Images/Tech_House_Mix_2022_11.webp",
-      url: "Sets/Tech_House_Mix_2022.html",
-      colorPrimary: "#ccff00",
-      colorSecondary: "#a100ff",
-      visible: true
-    },
-    {
-      id: 29,
-      title: "🔥✘GUARACHA MIX MAYO 2021✘🔥",
-      year: 2021,
-      month: 5,
-      desc: "13 Tracks - Guaracha / Aleteo / Zapateo",
-      img: "Images/Guaracha_Mix_Mayo_2021_11.webp",
-      url: "Sets/Guaracha_Mix_Mayo_2021.html",
-      colorPrimary: "#ff007f",
-      colorSecondary: "#ffcc00",
-      visible: true
-    },
-    {
-      id: 30,
-      title: "Mix Octubre 2019",
-      year: 2019,
-      month: 10,
-      desc: "13 Tracks - Guaracha / Aleteo / Tribal Remixes",
-      img: "Images/Mix_Octubre_2019_11.webp",
-      url: "Sets/Mix_Octubre_2019.html",
-      colorPrimary: "#ff0055",
-      colorSecondary: "#00e5ff",
-      visible: true
-    },
-    {
-      id: 31,
-      title: "Mix Año Nuevo 2020 (Especial Reggaeton)",
-      year: 2019,
-      month: 12,
-      desc: "30 Tracks - Especial Reggaeton / Tribal & Fiesta Hits",
-      img: "Images/Mix_Ano_Nuevo_2020_11.webp",
-      url: "Sets/Mix_Ano_Nuevo_2020.html",
-      colorPrimary: "#ff007f",
-      colorSecondary: "#ffea00",
-      visible: true
-    },
-    {
-      id: 32,
-      title: "Mix Diciembre 2019",
-      year: 2019,
-      month: 12,
-      desc: "12 Tracks - Tribal House / Circuit / Aleteo Mashups",
-      img: "Images/Mix_Diciembre_2019_11.webp",
-      url: "Sets/Mix_Diciembre_2019.html",
-      colorPrimary: "#ff0033",
-      colorSecondary: "#00ffcc",
-      visible: true
-    },
-    {
-      id: 33,
-      title: "Mix Julio 2019",
-      year: 2019,
-      month: 7,
-      desc: "20 Tracks - Electro House / EDM / Tribal & Guaracha Remixes",
-      img: "Images/Mix_Julio_2019_11.webp",
-      url: "Sets/Mix_Julio_2019.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#ff00aa",
-      visible: true
-    },
-    {
-      id: 34,
-      title: "Mix Enero 2020",
-      year: 2020,
-      month: 1,
-      desc: "10 Tracks - Reggaeton / Guaracha / Aleteo",
-      img: "Images/Mix_Enero_2020_11.webp",
-      url: "Sets/Mix_Enero_2020.html",
-      colorPrimary: "#8a2be2",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 35,
-      title: "Mix Febrero 2020",
-      year: 2020,
-      month: 2,
-      desc: "19 Tracks - Reggaeton Sin Límite / Tribal & Circuit",
-      img: "Images/Mix_Febrero_2020_11.webp",
-      url: "Sets/Mix_Febrero_2020.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#ff007f",
-      visible: true
-    },
-    {
-      id: 36,
-      title: "Mix Marzo 2020",
-      year: 2020,
-      month: 3,
-      desc: "14 Tracks - Electro Music / Workout Club Remixes",
-      img: "Images/Mix_Marzo_2020_11.webp",
-      url: "Sets/Mix_Marzo_2020.html",
-      colorPrimary: "#ff00aa",
-      colorSecondary: "#ffea00",
-      visible: true
-    },
-    {
-      id: 37,
-      title: "Mix Abril 2020",
-      year: 2020,
-      month: 4,
-      desc: "15 Tracks - Stay Home Edition / Guaracha & Circuit",
-      img: "Images/Mix_Abril_2020_11.webp",
-      url: "Sets/Mix_Abril_2020.html",
-      colorPrimary: "#ff00a0",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 38,
-      title: "Mix Mayo 2020",
-      year: 2020,
-      month: 5,
-      desc: "14 Tracks - Electro Music & Dance Hits",
-      img: "Images/Mix_Mayo_2020_11.webp",
-      url: "Sets/Mix_Mayo_2020.html",
-      colorPrimary: "#ffea00",
-      colorSecondary: "#00ff88",
-      visible: true
-    },
-    {
-      id: 39,
-      title: "Mix Junio 2020",
-      year: 2020,
-      month: 6,
-      desc: "14 Tracks - Guaracha / Aleteo & Electro House",
-      img: "Images/Mix_Junio_2020_11.webp",
-      url: "Sets/Mix_Junio_2020.html",
-      colorPrimary: "#aa00ff",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 40,
-      title: "Mix Julio 2020",
-      year: 2020,
-      month: 7,
-      desc: "19 Tracks - Reggaeton Sin Límite Old School",
-      img: "Images/Mix_Julio_2020_11.webp",
-      url: "Sets/Mix_Julio_2020.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#ffffff",
-      visible: true
-    },
-    {
-      id: 41,
-      title: "Mix Agosto 2020",
-      year: 2020,
-      month: 8,
-      desc: "08 Tracks - Trap / Dubstep & Electro House",
-      img: "Images/Mix_Agosto_2020_11.webp",
-      url: "Sets/Mix_Agosto_2020.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#ff00aa",
-      visible: true
-    },
-    {
-      id: 42,
-      title: "Mix Septiembre 2020",
-      year: 2020,
-      month: 9,
-      desc: "15 Tracks - Edición Patria / Guaracha & Aleteo VIP",
-      img: "Images/Mix_Septiembre_2020_11.webp",
-      url: "Sets/Mix_Septiembre_2020.html",
-      colorPrimary: "#00ff66",
-      colorSecondary: "#ff0033",
-      visible: true
-    },
-    {
-      id: 43,
-      title: "Mix Octubre 2020",
-      year: 2020,
-      month: 10,
-      desc: "08 Tracks - Drum & Bass Special",
-      img: "Images/Mix_Octubre_2020_11.webp",
-      url: "Sets/Mix_Octubre_2020.html",
-      colorPrimary: "#ffea00",
-      colorSecondary: "#ff00aa",
-      visible: true
-    },
-    {
-      id: 44,
-      title: "Mix Noviembre 2020",
-      year: 2020,
-      month: 11,
-      desc: "12 Tracks - Special Halloween / Guaracha & Tribal",
-      img: "Images/Mix_Noviembre_2020_11.webp",
-      url: "Sets/Mix_Noviembre_2020.html",
-      colorPrimary: "#ff6600",
-      colorSecondary: "#aa00ff",
-      visible: true
-    },
-    {
-      id: 45,
-      title: "Mix Diciembre 2020",
-      year: 2020,
-      month: 12,
-      desc: "18 Tracks - Special Year End / Guaracha & Aleteo Bass",
-      img: "Images/Mix_Diciembre_2020_11.webp",
-      url: "Sets/Mix_Diciembre_2020.html",
-      colorPrimary: "#ff0055",
-      colorSecondary: "#00f0ff",
-      visible: true
-    },
-    {
-      id: 46,
-      title: "Mix Electro Julio 2023",
-      year: 2023,
-      month: 7,
-      desc: "15 Tracks - Electro House / Mashups & Club Anthems",
-      img: "Images/Mix_Electro_Julio_2023_11.webp",
-      url: "Sets/Mix_Electro_Julio_2023.html",
-      colorPrimary: "#00f0ff",
-      colorSecondary: "#ff00aa",
-      visible: true
-    }
+  { id: 1, title: "Digital Delirium", year: 2026, month: 9, desc: "30 Tracks - Tech / Progressive / Bass", img: "Images/Digital_Delirium_11.webp", url: "Sets/Digital_Delirium.html", colorPrimary: "#00f0ff", colorSecondary: "#ff007f", visible: true },
+  { id: 2, title: "House Nation", year: 2026, month: 9, desc: "14 Tracks - Vocal House / Festival EDM", img: "Images/House_Nation_11.webp", url: "Sets/House_Nation.html", colorPrimary: "#ff9d00", colorSecondary: "#ff3300", visible: true },
+  { id: 3, title: "deadmau5 Mix", year: 2024, month: 4, desc: "15 Tracks - Progressive House / Electro", img: "Images/Mix_Deadmau5_11.webp", url: "Sets/Mix_Deadmau5.html", colorPrimary: "#ff0055", colorSecondary: "#00ffcc", visible: true },
+  { id: 4, title: "Mix Febrero 2015", year: 2015, month: 2, desc: "19 Tracks - Big Room / Melbourne Bounce / Future House", img: "Images/Mix_Febrero_2015_11.webp", url: "Sets/Mix_Febrero_2015.html", colorPrimary: "#ffb700", colorSecondary: "#ff0055", visible: true },
+  { id: 5, title: "Mix Diciembre 2016", year: 2016, month: 12, desc: "18 Tracks - Future House / Bass House / Exclusive Mashups", img: "Images/Mix_Diciembre_2016_11.webp", url: "Sets/Mix_Diciembre_2016.html", colorPrimary: "#a855f7", colorSecondary: "#00f0ff", visible: true },
+  { id: 6, title: "Mix Octubre 2017", year: 2017, month: 10, desc: "12 Tracks - Bass House / Future Bounce / Electro House", img: "Images/Mix_Octubre_2017_11.webp", url: "Sets/Mix_Octubre_2017.html", colorPrimary: "#39ff14", colorSecondary: "#b000ff", visible: true },
+  { id: 7, title: "Mix Otoño 2017", year: 2017, month: 11, desc: "24 Tracks - Big Room / Electro House / Festival Bootlegs", img: "Images/Mix_Otono_2017_11.webp", url: "Sets/Mix_Otono_2017.html", colorPrimary: "#ff5500", colorSecondary: "#ffcc00", visible: true },
+  { id: 8, title: "Mix Random 2017", year: 2017, month: 12, desc: "12 Tracks - Progressive House / Tech House / Electro", img: "Images/Mix_Random_2017_11.webp", url: "Sets/Mix_Random_2017.html", colorPrimary: "#00f0ff", colorSecondary: "#7000ff", visible: true },
+  { id: 9, title: "Mix Marzo 2018", year: 2018, month: 3, desc: "13 Tracks - Commercial EDM / Electro House / Pop Remixes", img: "Images/Mix_Marzo_2018_11.webp", url: "Sets/Mix_Marzo_2018.html", colorPrimary: "#00e5ff", colorSecondary: "#ff007f", visible: true },
+  { id: 10, title: "Mix Abril 2018", year: 2018, month: 4, desc: "14 Tracks - Future Bounce / Bass House / Electro House", img: "Images/Mix_Abril_2018_11.webp", url: "Sets/Mix_Abril_2018.html", colorPrimary: "#00ff88", colorSecondary: "#00a2ff", visible: true },
+  { id: 11, title: "Mix Agosto 2018", year: 2018, month: 8, desc: "14 Tracks - Big Room / Psytrance / Bass House", img: "Images/Mix_Agosto_2018_11.webp", url: "Sets/Mix_Agosto_2018.html", colorPrimary: "#ff0033", colorSecondary: "#ffee00", visible: true },
+  { id: 12, title: "Mix Diciembre 2018", year: 2018, month: 12, desc: "24 Tracks - Big Room / Bass House / Electro House", img: "Images/Mix_Diciembre_2018_11.webp", url: "Sets/Mix_Diciembre_2018.html", colorPrimary: "#ff0055", colorSecondary: "#00f0ff", visible: true },
+  { id: 13, title: "Mix Abril 2019", year: 2019, month: 4, desc: "18 TRACKS - Future Bounce / Tech House / Tribal Electro", img: "Images/Mix_Abril_2019_11.webp", url: "Sets/Mix_Abril_2019.html", colorPrimary: "#00ff88", colorSecondary: "#00e5ff", visible: true },
+  { id: 14, title: "Mix Junio 2019", year: 2019, month: 6, desc: "27 Tracks - Guaracha / Aleteo / Tribal House", img: "Images/Mix_Junio_2019_11.webp", url: "Sets/Mix_Junio_2019.html", colorPrimary: "#ccff00", colorSecondary: "#ff4500", visible: true },
+  { id: 15, title: "Mix Oliver Heldens / HI-LO Vol. 1", year: 2023, month: 4, desc: "25 Tracks - Future House / Nu-Disco / Techno", img: "Images/Mix_OH_Vol_1_2023_11.webp", url: "Sets/Mix_OH_Vol_1_2023.html", colorPrimary: "#00d2ff", colorSecondary: "#9b51e0", visible: true },
+  { id: 16, title: "Mix Oliver Heldens / Hilo Vol. 2", year: 2024, month: 1, desc: "25 Tracks - Future House / Bass House / Techno", img: "Images/Mix_OH_Vol_2_2024_11.webp", url: "Sets/Mix_OH_Vol_2_2024.html", colorPrimary: "#00f0ff", colorSecondary: "#ff007f", visible: true },
+  { id: 17, title: "Mix 80's y 90's Vol. 1", year: 2022, month: 11, desc: "20 Tracks - Disco / Eurodance / 80's & 90's Retro Classics", img: "Images/Mix_80s_y_90s_Vol_1_11.webp", url: "Sets/Mix_80s_y_90s_Vol_1.html", colorPrimary: "#ff007f", colorSecondary: "#00f0ff", visible: true },
+  { id: 18, title: "Mix 80's y 90's Vol. 2", year: 2024, month: 7, desc: "25 Tracks - Eurodance / 80's & 90's Pop / Dance Classics", img: "Images/Mix_80s_y_90s_Vol_2_11.webp", url: "Sets/Mix_80s_y_90s_Vol_2.html", colorPrimary: "#ff007f", colorSecondary: "#00f0ff", visible: true },
+  { id: 19, title: "Mix Cumbia Vol. 1", year: 2023, month: 6, desc: "25 Tracks - Cumbia Clásica / Cumbia Sonidera / Tropical Remixes", img: "Images/Mix_Cumbia_Vol_1_11.webp", url: "Sets/Mix_Cumbia_Vol_1.html", colorPrimary: "#ffcc00", colorSecondary: "#ff0055", visible: true },
+  { id: 20, title: "Mix Salsa Vol. 1", year: 2023, month: 6, desc: "17 Tracks - Salsa Clásica / Salsa Dura / Salsa Tropical", img: "Images/Mix_Salsa_Vol_1_11.webp", url: "Sets/Mix_Salsa_Vol_1.html", colorPrimary: "#ff0044", colorSecondary: "#00ff66", visible: true },
+  { id: 21, title: "Mix Merengue Vol. 1", year: 2023, month: 6, desc: "25 Tracks - Merengue Clásico / Mambo / Tropical Fiesta", img: "Images/Mix_Merengue_Vol_1_11.webp", url: "Sets/Mix_Merengue_Vol_1.html", colorPrimary: "#ffe600", colorSecondary: "#00e64d", visible: true },
+  { id: 22, title: "Mix Banda y Quebradita Vol. 1", year: 2023, month: 6, desc: "20 Tracks - Banda / Quebradita / Baile Regional", img: "Images/Mix_Banda_y_Quebradita_Vol_1_11.webp", url: "Sets/Mix_Banda_y_Quebradita_Vol_1.html", colorPrimary: "#ff6600", colorSecondary: "#00ccff", visible: true },
+  { id: 23, title: "Megamix Multigénero", year: 2023, month: 12, desc: "Especial 3h 26min - Cumbia, Salsa, Merengue & Banda", img: "Images/Megamix_Multigenero_11.webp", url: "Sets/Megamix_Multigenero.html", colorPrimary: "#ff0055", colorSecondary: "#00f0ff", visible: true },
+  { id: 24, title: "🔥✘GUARACHA MIX 2021✘🔥", year: 2021, month: 9, desc: "26 Tracks - Guaracha / Tribal House / Aleteo", img: "Images/Guaracha_Mix_Septiembre_2021_11.webp", url: "Sets/Guaracha_Mix_Septiembre_2021.html", colorPrimary: "#39ff14", colorSecondary: "#d600ff", visible: true },
+  { id: 25, title: "🔥✘GUARACHA MIX 2022✘🔥", year: 2022, month: 2, desc: "23 Tracks - Guaracha / Tribal House / Electro Aleteo", img: "Images/Guaracha_Mix_2022_11.webp", url: "Sets/Guaracha_Mix_2022.html", colorPrimary: "#ff6600", colorSecondary: "#00f0ff", visible: true },
+  { id: 26, title: "🔥✘GUARACHA | CIRCUIT MIX 2022✘🔥", year: 2022, month: 6, desc: "26 Tracks - Circuit House / Guaracha / Tribal Edits", img: "Images/Guaracha_Circuit_Mix_2022_11.webp", url: "Sets/Guaracha_Circuit_Mix_2022.html", colorPrimary: "#9900ff", colorSecondary: "#00f0ff", visible: true },
+  { id: 27, title: "🔥✘MIX TRIVANS 2022✘🔥", year: 2022, month: 9, desc: "15 Tracks - Tribal House / Latin Club / Trivans Edits", img: "Images/Mix_Trivans_11.webp", url: "Sets/Mix_Trivans.html", colorPrimary: "#00ffaa", colorSecondary: "#ffaa00", visible: true },
+  { id: 28, title: "✨ Tech House Mix 2022 ✨", year: 2022, month: 3, desc: "10 Tracks - Tech House / Peak-Time / Club Mashups", img: "Images/Tech_House_Mix_2022_11.webp", url: "Sets/Tech_House_Mix_2022.html", colorPrimary: "#ccff00", colorSecondary: "#a100ff", visible: true },
+  { id: 29, title: "🔥✘GUARACHA MIX MAYO 2021✘🔥", year: 2021, month: 5, desc: "13 Tracks - Guaracha / Aleteo / Zapateo", img: "Images/Guaracha_Mix_Mayo_2021_11.webp", url: "Sets/Guaracha_Mix_Mayo_2021.html", colorPrimary: "#ff007f", colorSecondary: "#ffcc00", visible: true },
+  { id: 30, title: "Mix Octubre 2019", year: 2019, month: 10, desc: "13 Tracks - Guaracha / Aleteo / Tribal Remixes", img: "Images/Mix_Octubre_2019_11.webp", url: "Sets/Mix_Octubre_2019.html", colorPrimary: "#ff0055", colorSecondary: "#00e5ff", visible: true },
+  { id: 31, title: "Mix Año Nuevo 2020 (Especial Reggaeton)", year: 2019, month: 12, desc: "30 Tracks - Especial Reggaeton / Tribal & Fiesta Hits", img: "Images/Mix_Ano_Nuevo_2020_11.webp", url: "Sets/Mix_Ano_Nuevo_2020.html", colorPrimary: "#ff007f", colorSecondary: "#ffea00", visible: true },
+  { id: 32, title: "Mix Diciembre 2019", year: 2019, month: 12, desc: "12 Tracks - Tribal House / Circuit / Aleteo Mashups", img: "Images/Mix_Diciembre_2019_11.webp", url: "Sets/Mix_Diciembre_2019.html", colorPrimary: "#ff0033", colorSecondary: "#00ffcc", visible: true },
+  { id: 33, title: "Mix Julio 2019", year: 2019, month: 7, desc: "20 Tracks - Electro House / EDM / Tribal & Guaracha Remixes", img: "Images/Mix_Julio_2019_11.webp", url: "Sets/Mix_Julio_2019.html", colorPrimary: "#00f0ff", colorSecondary: "#ff00aa", visible: true },
+  { id: 34, title: "Mix Enero 2020", year: 2020, month: 1, desc: "10 Tracks - Reggaeton / Guaracha / Aleteo", img: "Images/Mix_Enero_2020_11.webp", url: "Sets/Mix_Enero_2020.html", colorPrimary: "#8a2be2", colorSecondary: "#00f0ff", visible: true },
+  { id: 35, title: "Mix Febrero 2020", year: 2020, month: 2, desc: "19 Tracks - Reggaeton Sin Límite / Tribal & Circuit", img: "Images/Mix_Febrero_2020_11.webp", url: "Sets/Mix_Febrero_2020.html", colorPrimary: "#00f0ff", colorSecondary: "#ff007f", visible: true },
+  { id: 36, title: "Mix Marzo 2020", year: 2020, month: 3, desc: "14 Tracks - Electro Music / Workout Club Remixes", img: "Images/Mix_Marzo_2020_11.webp", url: "Sets/Mix_Marzo_2020.html", colorPrimary: "#ff00aa", colorSecondary: "#ffea00", visible: true },
+  { id: 37, title: "Mix Abril 2020", year: 2020, month: 4, desc: "15 Tracks - Stay Home Edition / Guaracha & Circuit", img: "Images/Mix_Abril_2020_11.webp", url: "Sets/Mix_Abril_2020.html", colorPrimary: "#ff00a0", colorSecondary: "#00f0ff", visible: true },
+  { id: 38, title: "Mix Mayo 2020", year: 2020, month: 5, desc: "14 Tracks - Electro Music & Dance Hits", img: "Images/Mix_Mayo_2020_11.webp", url: "Sets/Mix_Mayo_2020.html", colorPrimary: "#ffea00", colorSecondary: "#00ff88", visible: true },
+  { id: 39, title: "Mix Junio 2020", year: 2020, month: 6, desc: "14 Tracks - Guaracha / Aleteo & Electro House", img: "Images/Mix_Junio_2020_11.webp", url: "Sets/Mix_Junio_2020.html", colorPrimary: "#aa00ff", colorSecondary: "#00f0ff", visible: true },
+  { id: 40, title: "Mix Julio 2020", year: 2020, month: 7, desc: "19 Tracks - Reggaeton Sin Límite Old School", img: "Images/Mix_Julio_2020_11.webp", url: "Sets/Mix_Julio_2020.html", colorPrimary: "#00f0ff", colorSecondary: "#ffffff", visible: true },
+  { id: 41, title: "Mix Agosto 2020", year: 2020, month: 8, desc: "08 Tracks - Trap / Dubstep & Electro House", img: "Images/Mix_Agosto_2020_11.webp", url: "Sets/Mix_Agosto_2020.html", colorPrimary: "#00f0ff", colorSecondary: "#ff00aa", visible: true },
+  { id: 42, title: "Mix Septiembre 2020", year: 2020, month: 9, desc: "15 Tracks - Edición Patria / Guaracha & Aleteo VIP", img: "Images/Mix_Septiembre_2020_11.webp", url: "Sets/Mix_Septiembre_2020.html", colorPrimary: "#00ff66", colorSecondary: "#ff0033", visible: true },
+  { id: 43, title: "Mix Octubre 2020", year: 2020, month: 10, desc: "08 Tracks - Drum & Bass Special", img: "Images/Mix_Octubre_2020_11.webp", url: "Sets/Mix_Octubre_2020.html", colorPrimary: "#ffea00", colorSecondary: "#ff00aa", visible: true },
+  { id: 44, title: "Mix Noviembre 2020", year: 2020, month: 11, desc: "12 Tracks - Special Halloween / Guaracha & Tribal", img: "Images/Mix_Noviembre_2020_11.webp", url: "Sets/Mix_Noviembre_2020.html", colorPrimary: "#ff6600", colorSecondary: "#aa00ff", visible: true },
+  { id: 45, title: "Mix Diciembre 2020", year: 2020, month: 12, desc: "18 Tracks - Special Year End / Guaracha & Aleteo Bass", img: "Images/Mix_Diciembre_2020_11.webp", url: "Sets/Mix_Diciembre_2020.html", colorPrimary: "#ff0055", colorSecondary: "#00f0ff", visible: true },
+  { id: 46, title: "Mix Electro Julio 2023", year: 2023, month: 7, desc: "15 Tracks - Electro House / Mashups & Club Anthems", img: "Images/Mix_Electro_Julio_2023_11.webp", url: "Sets/Mix_Electro_Julio_2023.html", colorPrimary: "#00f0ff", colorSecondary: "#ff00aa", visible: true }
     ];
+
+    // Se ordena y se prepara UNA sola vez (más reciente primero: año y luego mes)
+    const catalog = sets
+      .filter(s => s.visible)
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .map(s => {
+        const mName = monthNames[s.month - 1];
+        return {
+          s, mName,
+          fields: [s.title, s.desc, String(s.year), mName].map(t => t.toLowerCase()),
+          mNum: String(s.month),
+          mNumPad: String(s.month).padStart(2, '0')
+        };
+      });
 
     const container = document.getElementById('sets-container');
     const searchInput = document.getElementById('search-input');
 
-    // DIBUJA, ORDENA Y FILTRA LOS SETS EN PANTALLA
-    function renderSets(filterQuery = "") {
-      container.innerHTML = "";
-      const query = filterQuery.toLowerCase().trim();
+    // Las 3 primeras portadas cargan de inmediato; el resto, solo al acercarse en el scroll
+    const cardHTML = ({ s, mName }, i) => `
+      <div class="col-12 col-md-6 col-lg-4">
+        <a href="${s.url}" class="set-card" style="border-color:${s.colorPrimary}40">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="year-badge text-uppercase fw-semibold" style="color:${s.colorPrimary};border-color:${s.colorPrimary}60">
+              <svg class="ico me-1"><use href="#i-calendar3"/></svg>Rec. ${mName} ${s.year}
+            </span>
+          </div>
+          <img src="${s.img}" alt="${s.title} Cover" class="cover-img mb-3" width="350" height="350"${i < 3 ? '' : ' loading="lazy"'} decoding="async" onerror="this.onerror=null;this.src='Images/set1_11.webp'">
+          <h4 class="fw-bold text-uppercase" style="color:${s.colorPrimary}">${s.title}</h4>
+          <p class="small mb-3">${s.desc}</p>
+          <div class="set-cta">
+            <svg class="ico pointing-hand me-1"><use href="#i-hand-index-thumb-fill"/></svg>
+            <span class="small fw-bold text-uppercase" style="color:${s.colorSecondary}">Escuchar</span>
+          </div>
+        </a>
+      </div>`;
 
-      // 1. Filtrar sets por Título, Descripción, Año o Mes (nombre o número)
-      const filteredSets = sets.filter(set => {
-        if (!set.visible) return false;
+    // Dibuja los sets que coinciden con la búsqueda (título, descripción, año o mes)
+    function renderSets(rawQuery = '') {
+      const q = rawQuery.toLowerCase().trim();
+      const list = q
+        ? catalog.filter(c => c.fields.some(f => f.includes(q)) || c.mNum === q || c.mNumPad === q)
+        : catalog;
 
-        const mName = monthNames[set.month - 1].toLowerCase();
-        const mNum = set.month.toString();
-        const mNumPad = set.month.toString().padStart(2, '0'); // '04', '06', etc.
-
-        const matchesTitle = set.title.toLowerCase().includes(query);
-        const matchesDesc = set.desc.toLowerCase().includes(query);
-        const matchesYear = set.year.toString().includes(query);
-        const matchesMonth = mName.includes(query) || mNum === query || mNumPad === query;
-
-        return matchesTitle || matchesDesc || matchesYear || matchesMonth;
-      });
-
-      // 2. Ordenar cronológicamente: Primero por AÑO (descendente), luego por MES (descendente)
-      filteredSets.sort((a, b) => {
-        if (b.year !== a.year) {
-          return b.year - a.year;
-        }
-        return b.month - a.month;
-      });
-
-      // Si no hay resultados
-      if (filteredSets.length === 0) {
-        container.innerHTML = `
-          <div class="col-12 my-4">
-            <p style="color:white;">No se encontraron sets que coincidan con "${filterQuery}".</p>
-          </div>`;
+      if (!list.length) {
+        const box = document.createElement('div');
+        box.className = 'col-12 my-4';
+        const p = document.createElement('p');
+        p.className = 'text-white';
+        p.textContent = `No se encontraron sets que coincidan con "${rawQuery}".`;
+        box.appendChild(p);
+        container.replaceChildren(box);
         return;
       }
-
-      // 3. Renderizar las tarjetas
-      filteredSets.forEach(set => {
-        const cardCol = document.createElement('div');
-        cardCol.className = 'col-12 col-md-6 col-lg-4';
-        const displayMonth = monthNames[set.month - 1];
-        
-        cardCol.innerHTML = `
-          <a href="${set.url}" class="set-card" style="border-color: ${set.colorPrimary}40;">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <span class="year-badge text-uppercase fw-semibold" style="color: ${set.colorPrimary}; border-color: ${set.colorPrimary}60;">
-                <i class="bi bi-calendar3 me-1"></i>Rec. ${displayMonth} ${set.year}
-              </span>
-            </div>
-            <img src="${set.img}" alt="${set.title} Cover" class="cover-img mb-3" onerror="this.src='Images/set1_11.webp'">
-            <h4 class="fw-bold text-uppercase" style="color: ${set.colorPrimary};">${set.title}</h4>
-            <p class="small mb-3" style="color:white;">${set.desc}</p>
-            <div>
-              <i class="bi bi-hand-index-thumb-fill pointing-hand me-1" style="color:white;"></i>
-              <span class="small fw-bold text-uppercase" style="color: ${set.colorSecondary};">Escuchar</span>
-            </div>
-          </a>
-        `;
-        container.appendChild(cardCol);
-      });
+      container.innerHTML = list.map(cardHTML).join('');
     }
 
-    // Escuchar la búsqueda en tiempo real
-    searchInput.addEventListener('input', (e) => {
-      renderSets(e.target.value);
+    // Búsqueda en tiempo real (espera 150 ms después de la última tecla)
+    let searchTimer;
+    searchInput.addEventListener('input', e => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => renderSets(e.target.value), 150);
     });
 
-    // Carga inicial
     renderSets();
+
+    // ===== MENÚ FLOTANTE =====
+    const fabMenu = document.getElementById('fabMenu');
+    const fabToggle = document.getElementById('fabToggle');
+    const fabBackdrop = document.getElementById('fabBackdrop');
+
+    function setFab(open) {
+      fabMenu.classList.toggle('open', open);
+      fabBackdrop.classList.toggle('show', open);
+      fabToggle.setAttribute('aria-expanded', open);
+      fabToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+
+    fabToggle.addEventListener('click', () => setFab(!fabMenu.classList.contains('open')));
+    fabBackdrop.addEventListener('click', () => setFab(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setFab(false); });
+    // Si el usuario regresa con el botón "atrás", el menú no debe quedar abierto
+    window.addEventListener('pageshow', () => setFab(false));
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <footer class="main-footer">
-    <div class="footer-content">
-      
-      <!-- Branding & Descripción -->
-      <div class="footer-brand">
-        <h2 class="footer-logo">MIAN</h2>
-        <p class="footer-tagline">Electronic Music & Live DJ Sets</p>
-      </div>
-
-      <!-- Enlaces Sociales y Contacto -->
-      <div class="footer-links">
-        <a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-          <span>YouTube</span>
-        </a>
-
-        <a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-          <span>Facebook</span>
-        </a>
-
-        <a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          <span>Instagram</span>
-        </a>
-
-        <a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener" aria-label="SoundCloud">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
-          <span>SoundCloud</span>
-        </a>
-
-        <a href="https://github.com/MiguelAngelVazquezPech" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          <span>GitHub</span>
-        </a>
-
-        <a href="contacto.html" aria-label="Contacto por Correo">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span>Contacto</span>
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Copyright y Nota de Alojamiento -->
-    <div class="footer-bottom">
-      <p>&copy; 2026 <strong>MIAN</strong>. Todos los derechos reservados.</p>
-      <p class="footer-host-note">Audio streaming alojado en Internet Archive.</p>
-    </div>
-  </footer>
 </body>
 </html>
