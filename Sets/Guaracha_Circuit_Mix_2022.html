@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:type" content="website">
+    <meta property="og:title" content="MIAN - 🔥✘GUARACHA | CIRCUIT MIX 2022✘🔥">
+    <meta property="og:description" content="Escucha 🔥✘GUARACHA | CIRCUIT MIX 2022✘🔥 en alta calidad (CIRCUIT HOUSE, GUARACHA & TRIBAL (PACK EDITS)). Incluye tracklist interactivo y marcas de tiempo.">
+    <meta property="og:image" content="https://djmianvazquez.com/Images/Guaracha_Circuit_Mix_2022_11.webp">
+    <meta property="og:url" content="https://djmianvazquez.com/Sets/Guaracha_Circuit_Mix_2022.html">
+    <link rel="icon" type="image/x-icon" href="../Images/logo.ico">
+    <title>Guaracha & Circuit Mix 2022 - Player & Tracklist</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-neon: #9900ff;   /* Violeta Circuit Eléctrico */
+            --secondary-neon: #00f0ff; /* Cían Neón Tropical */
+            --bg-dark: #0a0a0f;
+            --card-bg: rgba(18, 19, 28, 0.85);
+            --yt-red: #ff0000;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('../Images/Guaracha_Circuit_Mix_2022_11.webp') center/cover no-repeat;
+            filter: blur(20px) brightness(0.35);
+            z-index: -1;
+        }
+
+        .nav-logo {
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        .player-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(153, 0, 255, 0.25);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .track-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            text-decoration: none !important;
+            color: inherit;
+            transition: all 0.2s ease-in-out;
+            backdrop-filter: blur(5px);
+      cursor: pointer;
+    }
+
+        .track-link:hover {
+            background: rgba(153, 0, 255, 0.12);
+            border-color: var(--primary-neon);
+            transform: translateX(4px);
+        }
+
+/* Estado activo cuando la canción está sonando */
+    .track-link.active {
+      border-color: var(--primary-neon) !important;
+      background: rgba(153, 0, 255, 0.18) !important;
+      box-shadow: 0 0 12px rgba(153, 0, 255, 0.25);
+    }
+
+    /* Ecualizador animado neón */
+    .eq-container {
+      display: none;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .track-link.active .eq-container {
+      display: inline-flex;
+    }
+
+    .eq-bar {
+      width: 3px;
+      background-color: var(--primary-neon);
+      border-radius: 1px;
+      height: 100%;
+      animation: eqBounce 0.7s ease-in-out infinite alternate;
+    }
+
+    .eq-bar:nth-child(2) { animation-delay: 0.2s; }
+    .eq-bar:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes eqBounce {
+      0% { height: 20%; }
+      100% { height: 100%; }
+    }
+
+        .track-exclusive {
+            background: rgba(255, 193, 7, 0.05);
+            border-color: rgba(255, 193, 7, 0.2);
+            cursor: pointer;
+        }
+
+        .track-exclusive:hover {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: #ffc107;
+            transform: none;
+        }
+
+        .track-info {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 8px;
+        }
+
+        .track-num {
+            color: var(--secondary-neon);
+            font-weight: bold;
+            font-size: 0.9rem;
+            min-width: 28px;
+            display: inline-block;
+        }
+
+        .track-title {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.93rem;
+        }
+
+        .track-artist {
+            font-size: 0.81rem;
+            color: #a0aec0;
+        }
+
+        .yt-icon {
+      color: #a0aec0;
+      font-size: 1.55rem;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      flex-shrink: 0;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .yt-icon:hover {
+      color: #ffffff !important;
+      background: var(--yt-red) !important;
+      border-color: var(--yt-red) !important;
+      transform: scale(1.18);
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+    }
+
+        
+
+        .column-header {
+            color: var(--primary-neon);
+            border-bottom: 2px solid var(--secondary-neon);
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .set-header-cover {
+            max-width: 260px;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(153, 0, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .set-header-cover:hover {
+            transform: scale(1.03);
+        }
+        .main-footer {
+      width: 100%;
+      background-color: #080a0f;
+      border-top: 1px solid rgba(0, 229, 255, 0.2);
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.6);
+      color: #a0a5b5;
+      padding: 40px 20px 25px 20px;
+      margin-top: 80px;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #ffffff;
+      margin: 0;
+      text-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: #62697a;
+      margin: 4px 0 0 0;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #b0b8c8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      color: #00e5ff;
+      border-color: rgba(0, 229, 255, 0.4);
+      background: rgba(0, 229, 255, 0.08);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .footer-links svg {
+      transition: transform 0.25s ease;
+    }
+
+    .footer-links a:hover svg {
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 20px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #525866;
+    }
+
+    .footer-bottom strong {
+      color: #d0d5e0;
+    }
+
+    .footer-host-note {
+      font-size: 0.75rem;
+      color: #404654;
+    }
+
+    /* Responsivo para celulares */
+    @media (max-width: 650px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR CON BOTÓN DE REGRESO -->
+    <nav class="navbar border-bottom border-secondary py-3">
+        <div class="container">
+            <a href="../index.html" class="text-decoration-none text-light d-flex align-items-center gap-2">
+                <i class="bi bi-arrow-left-circle fs-4" style="color: var(--primary-neon);"></i>
+                <span class="small text-uppercase fw-bold">Volver al Inicio</span>
+            </a>
+            <img src="../Images/logo.webp" alt="Logo" class="nav-logo" onerror="this.style.display='none';">
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        
+        <!-- TÍTULO DEL SET Y CARÁTULA -->
+        <div class="text-center mb-4">
+            <h1 class="fw-bold display-5 text-uppercase" style="color: var(--primary-neon); letter-spacing: 2px;">
+                🔥✘GUARACHA | CIRCUIT MIX 2022✘🔥
+            </h1>
+            <div class="my-3">
+                <img src="../Images/Guaracha_Circuit_Mix_2022_11.webp" alt="Portada Guaracha & Circuit Mix 2022" class="set-header-cover img-fluid" onerror="this.src='../Images/set1_11.webp'">
+            </div>
+            <p style="color: white;">CIRCUIT HOUSE, GUARACHA & TRIBAL (PACK EDITS)</p>
+        </div>
+
+        <!-- REPRODUCTOR DE AUDIO -->
+        <section class="mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="player-card p-4 text-center">
+                        <h4 class="fw-bold mb-3" style="color: var(--secondary-neon);">REPRODUCIR SET</h4>
+                        
+                        <!-- REPRODUCTOR NATIVO DE INTERNET ARCHIVE -->
+                        <audio id="main-audio" controls preload="metadata" style="width: 100%; height: 54px; border-radius: 12px; filter: drop-shadow(0 0 8px rgba(153,0,255,0.3));">
+                            <source src="https://archive.org/download/mian_20260929/🔥✘GUARACHA%20I%20CIRCUIT%20MIX%202022✘🔥l%20Mian%20Vazquez.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el reproductor de audio.
+                        </audio>
+
+                        <!-- INDICADOR DE ESTADO -->
+                        <div id="audio-status-container" class="mt-3">
+                            <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+                                <div id="loading-spinner" class="spinner-border spinner-border-sm text-info" role="status">
+                                    <span class="visually-hidden">Cargando...</span>
+                                </div>
+                                <span id="status-text" class="small fw-semibold text-info">Conectando con el servidor...</span>
+                            </div>
+                        </div>
+
+                        <!-- BOTÓN DE DESCARGA DIRECTA GOOGLE DRIVE -->
+                        <div class="mt-4">
+                            <a href="https://drive.google.com/uc?export=download&confirm=t&id=1hBkebYwqfRXvAbbGi9DNrSYemPCN-_mO" download target="_blank" class="btn btn-outline-info rounded-pill px-4">
+                                <i class="bi bi-download me-1"></i> Descargar Set MP3
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRACKLIST -->
+        <section class="my-5">
+            <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+                <h2 class="fw-bold text-center m-0" style="color: var(--primary-neon); letter-spacing: 2px;">TRACKLIST (26 TRACKS)</h2>
+            </div>
+
+            <!-- AVISO DE ADVERTENCIA SOBRE ENLACES DE YOUTUBE -->
+            <div class="alert alert-dark border-warning text-light d-flex align-items-center gap-3 my-4 rounded-3" style="background: rgba(255, 193, 7, 0.08); border: 1px solid rgba(255, 193, 7, 0.35); backdrop-filter: blur(5px);">
+                <i class="bi bi-exclamation-triangle-fill fs-3 text-warning flex-shrink-0"></i>
+                <div class="small">
+                    <strong class="text-warning d-block mb-1">Aviso sobre el contenido de los enlaces:</strong>
+                    Debido a que este mix contiene <em>bootlegs</em>, <em>edits</em> privados y versiones exclusivas para DJs, es posible que algunas canciones no se encuentren en YouTube o que los resultados no coincidan exactamente con la versión del set.
+                </div>
+            </div>
+
+            <p class="text-center small mb-4" style="color:white;">Haz clic en cualquier canción para saltar a ese minuto en el mix o usa el ícono <i class="bi bi-youtube text-danger"></i> para buscarla.</p>
+
+            <div class="row g-4 justify-content-center">
+                <!-- COLUMNA 1 (CIRCUIT SIDE: 01 - 15) -->
+                <div class="col-md-6">
+                    <h5 class="column-header"><i class="bi bi-lightning-charge-fill me-2"></i>CIRCUIT SIDE (01 - 15)</h5>
+
+                    <div class="track-link" data-time="00:00.00">
+                      <div class="track-info">
+                        <span class="track-num">01.</span> 
+                        <span class="track-title">I Want Love (Nitram Baeza & Angel Cruz Pride Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Jessie J</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Jessie+J+I+Want+Love+Nitram+Baeza+Angel+Cruz+Pride+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="03:12.70">
+                      <div class="track-info">
+                        <span class="track-num">02.</span> 
+                        <span class="track-title">Paradise (Angel Cruz Mega Saw Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Meduza ft. Dermot Kennedy</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Meduza+Paradise+Angel+Cruz+Mega+Saw+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="06:26.50">
+                      <div class="track-info">
+                        <span class="track-num">03.</span> 
+                        <span class="track-title">Big Bang First Time (Chakaleo 2021)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Brayan Agudelo x Carlos Rios</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Big+Bang+First+time+Brayan+Agudelo+Carlos+Rios+Chakaleo" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="08:54.20">
+                      <div class="track-info">
+                        <span class="track-num">04.</span> 
+                        <span class="track-title">Take Lem Pam Pem (Rwr)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Brayan Agudelo</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Take+Lem+Pam+Pem+Brayan+Agudelo" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="11:51.35">
+                      <div class="track-info">
+                        <span class="track-num">05.</span> 
+                        <span class="track-title">Whop Chakaleo (Rwk 2021)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Brayan Agudelo</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Whop+Chakaleo+Brayan+Agudelo" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="">
+                      <div class="track-info">
+                        <span class="track-num">06.</span> 
+                        <span class="track-title">South American Chakaleo</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Brayan Agudelo</small>
+                      </div>
+                      <p class="text-center small mb-4" style="color:yellow;">Forma parte, pero se omitió en la grabación.</p>
+                      <a href="https://www.youtube.com/results?search_query=South+American+Chakaleo+Brayan+Agudelo" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="13:38.45">
+                      <div class="track-info">
+                        <span class="track-num">07.</span> 
+                        <span class="track-title">Shake It Out The Machine (Chacaleo)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Brayan Agudelo</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Shake+It+Out+The+Machine+Brayan+Agudelo" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="15:36.60">
+                      <div class="track-info">
+                        <span class="track-num">08.</span> 
+                        <span class="track-title">Zumba E (Ney Bass Tribal Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">A.Clamara</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=A.Clamara+Zumba+E+Ney+Bass+Tribal+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="17:34.75">
+                      <div class="track-info">
+                        <span class="track-num">09.</span> 
+                        <span class="track-title">Llorarás (DvjGO Guaracha Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Cornetto</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Lloraras+Cornetto+DvjGO+Guaracha" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="20:01.50">
+                      <div class="track-info">
+                        <span class="track-num">10.</span> 
+                        <span class="track-title">El Día De Mi Suerte (Enrique Tellez Bootleg)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Hector Lavoe / Enrique Tellez</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=El+Dia+De+Mi+Suerte+Enrique+Tellez+Bootleg" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="22:21.75">
+                      <div class="track-info">
+                        <span class="track-num">11.</span> 
+                        <span class="track-title">Colegiala (Enrique Tellez Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Rodolfo Aicardi / Enrique Tellez</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Colegiala+Enrique+Tellez+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="">
+                      <div class="track-info">
+                        <span class="track-num">12.</span> 
+                        <span class="track-title">Oye Traicionera (Enrique Tellez Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Enrique Tellez</small>
+                      </div>
+                      <p class="text-center small mb-4" style="color:yellow;">Forma parte, pero se omitió en la grabación.</p>
+                      <a href="https://www.youtube.com/results?search_query=Oye+Traicionera+Enrique+Tellez+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="24:49.50">
+                      <div class="track-info">
+                        <span class="track-num">13.</span> 
+                        <span class="track-title">El Santísimo (Guaguancó Edit)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Latin House / Guaguancó</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=El+Santisimo+Guaguanco" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="26:03.30">
+                      <div class="track-info">
+                        <span class="track-num">14.</span> 
+                        <span class="track-title">Love Wings Melodies (Original Mix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Reyes Hernandez Dj</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Love+Wings+Melodies+Reyes+Hernandez+Dj" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <!-- TRACK EXCLUSIVO -->
+                    <div class="track-link track-exclusive" data-time="27:59.60">
+                      <div class="track-info">
+                        <span class="track-num">15.</span> 
+                        <span class="track-title">9PM Till I Come (Remix)</span> <span class="badge bg-warning text-dark ms-1">Exclusivo DJ</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">ATB (Reyes Hernandez PVT)</small>
+                      </div>
+                      <i class="bi bi-disc-fill text-warning fs-5" title="Edición Exclusiva de Pack"></i>
+                    </div>
+                </div>
+
+                <!-- COLUMNA 2 (GUARACHA SIDE: 16 - 26) -->
+                <div class="col-md-6">
+                    <h5 class="column-header"><i class="bi bi-fire me-2"></i>GUARACHA SIDE (16 - 26)</h5>
+
+                    <div class="track-link" data-time="31:36.10">
+                      <div class="track-info">
+                        <span class="track-num">16.</span> 
+                        <span class="track-title">Dákiti (Emanuel Monroy Sax Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Bad Bunny x Jhay Cortez</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Dakiti+Bad+Bunny+Jhay+Cortez+Emanuel+Monroy+Sax+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="35:05.40">
+                      <div class="track-info">
+                        <span class="track-num">17.</span> 
+                        <span class="track-title">Emoji De Corazones (Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Alberto Contreras</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Emoji+De+Corazones+Alberto+Contreras+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="37:36.95">
+                      <div class="track-info">
+                        <span class="track-num">18.</span> 
+                        <span class="track-title">Viento (Alan Gallegos Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Gianluca Vacchi</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Gianluca+Vacchi+Viento+Alan+Gallegos+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <!-- TRACK EXCLUSIVO -->
+                    <div class="track-link track-exclusive" data-time="40:08.45">
+                      <div class="track-info">
+                        <span class="track-num">19.</span> 
+                        <span class="track-title">TAKA TAKA</span> <span class="badge bg-warning text-dark ms-1">Exclusivo DJ</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Percy Delicious PVT</small>
+                      </div>
+                      <i class="bi bi-disc-fill text-warning fs-5" title="Edición Exclusiva de Pack"></i>
+                    </div>
+
+                    <div class="track-link" data-time="41:13.45">
+                      <div class="track-info">
+                        <span class="track-num">20.</span> 
+                        <span class="track-title">GhuettoFunk</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Dj Distro, Morphius & Muzik Junkies</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=GhuettoFunk+Dj+Distro+Morphius+Muzik+Junkies" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="">
+                      <div class="track-info">
+                        <span class="track-num">21.</span> 
+                        <span class="track-title">1 2 3 4 (Turbo Tribe Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Alberto Contreras</small>
+                      </div>
+                      <p class="text-center small mb-4" style="color:yellow;">Forma parte, pero se omitió en la grabación.</p>
+                      <a href="https://www.youtube.com/results?search_query=1+2+3+4+Alberto+Contreras+Turbo+Tribe+Remix" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="">
+                      <div class="track-info">
+                        <span class="track-num">22.</span> 
+                        <span class="track-title">Pink Soldiers - 23 (Squid Game Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">ETX Guaracha</small>
+                      </div>
+                      <p class="text-center small mb-4" style="color:yellow;">Forma parte, pero se omitió en la grabación.</p>
+                      <a href="https://www.youtube.com/results?search_query=23+Pink+Soldiers+ETX+Guaracha+Squid+Game" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <!-- TRACK EXCLUSIVO -->
+                    <div class="track-link track-exclusive" data-time="42:02.15">
+                      <div class="track-info">
+                        <span class="track-num">23.</span> 
+                        <span class="track-title">LA MAMA DE LA MAMA</span> <span class="badge bg-warning text-dark ms-1">Exclusivo DJ</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Antonnio Sagrero Tribal Full PVT</small>
+                      </div>
+                      <i class="bi bi-disc-fill text-warning fs-5" title="Edición Exclusiva de Pack"></i>
+                    </div>
+
+                    <div class="track-link" data-time="43:03.50">
+                      <div class="track-info">
+                        <span class="track-num">24.</span> 
+                        <span class="track-title">Papi (Distro Remix Tribal)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Dj Nelson</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Dj+Nelson+Papi+Distro+Remix+Tribal" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="44:28.25">
+                      <div class="track-info">
+                        <span class="track-num">25.</span> 
+                        <span class="track-title">Nuestro Sabor</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Dj Distro, Morphius & Muzik Junkies</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Nuestro+Sabor+Dj+Distro+Morphius+Muzik+Junkies" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+
+                    <div class="track-link" data-time="47:21.45">
+                      <div class="track-info">
+                        <span class="track-num">26.</span> 
+                        <span class="track-title">Blekete (Albert De León & Java V. Remix)</span>
+                        <div class="eq-container"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>
+                        <br><small class="track-artist">Sak Noel & Los Tioz feat. Maffio</small>
+                      </div>
+                      <a href="https://www.youtube.com/results?search_query=Sak+Noel+Los+Tioz+Maffio+Blekete+Albert+De+Leon" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();"><i class="bi bi-youtube yt-icon"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCRIPT MANEJO DE ESTADO DE AUDIO -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('main-audio');
+      const statusText = document.getElementById('status-text');
+      const spinner = document.getElementById('loading-spinner');
+      const tracks = Array.from(document.querySelectorAll('.track-link'));
+
+      // Convierte "MM:SS", "MM:SS.ms", "HH:MM:SS(.ms)" o segundos con decimales a segundos.
+      // Devuelve NaN si el valor está vacío o es inválido (ese track se ignora).
+      function parseTimeToSeconds(timeString) {
+        if (timeString === null || timeString === undefined) return NaN;
+        const str = String(timeString).trim();
+        if (!str) return NaN;
+        const parts = str.split(':');
+
+        if (parts.length === 3) {
+          return (parseFloat(parts[0]) * 3600) + (parseFloat(parts[1]) * 60) + parseFloat(parts[2]);
+        } else if (parts.length === 2) {
+          return (parseFloat(parts[0]) * 60) + parseFloat(parts[1]);
+        }
+        return parseFloat(str);
+      }
+
+      // Línea de tiempo: solo tracks con data-time válido, ordenados por inicio
+      const timeline = tracks
+        .map(el => ({ el, start: parseTimeToSeconds(el.getAttribute('data-time')) }))
+        .filter(item => Number.isFinite(item.start))
+        .sort((a, b) => a.start - b.start);
+
+      let activeEl = null;
+      function setActive(el) {
+        if (el === activeEl) return;
+        if (activeEl) activeEl.classList.remove('active');
+        if (el) el.classList.add('active');
+        activeEl = el;
+      }
+
+      // Estado de carga del audio
+      audio.addEventListener('loadstart', () => {
+        statusText.innerText = 'Conectando con el servidor...';
+        spinner.style.display = 'inline-block';
+      });
+
+      audio.addEventListener('waiting', () => {
+        statusText.innerText = 'Cargando buffer de audio...';
+        statusText.className = 'small fw-semibold text-info';
+        spinner.style.display = 'inline-block';
+      });
+
+      audio.addEventListener('canplay', () => {
+        statusText.innerText = '¡Listo para reproducir!';
+        statusText.className = 'small fw-semibold text-success';
+        spinner.style.display = 'none';
+      });
+
+      audio.addEventListener('playing', () => {
+        statusText.innerText = 'Reproduciendo Guaracha & Circuit Mix 2022...';
+        statusText.className = 'small fw-semibold text-success';
+        spinner.style.display = 'none';
+      });
+
+      audio.addEventListener('error', () => {
+        statusText.innerText = 'No se pudo cargar el audio. Intenta recargar la página.';
+        statusText.className = 'small fw-semibold text-danger';
+        spinner.style.display = 'none';
+      });
+
+      // 1. Detección en tiempo real del track actual (ecualizador activo)
+      audio.addEventListener('timeupdate', () => {
+        const currentTime = audio.currentTime;
+        let currentTrack = null;
+
+        for (const item of timeline) {
+          if (currentTime >= item.start) currentTrack = item.el;
+          else break;
+        }
+
+        setActive(audio.paused ? null : currentTrack);
+      });
+
+      // 2. Clic en el track: saltar al tiempo exacto y reproducir
+      tracks.forEach(track => {
+        track.addEventListener('click', () => {
+          const timeInSeconds = parseTimeToSeconds(track.getAttribute('data-time'));
+          if (!Number.isFinite(timeInSeconds)) return;
+          audio.currentTime = timeInSeconds;
+          const playPromise = audio.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+          }
+        });
+      });
+
+      // 3. Apagar el ecualizador al pausar
+      audio.addEventListener('pause', () => setActive(null));
+    });
+  </script>
+  <footer class="main-footer">
+  <div class="footer-content">
+    
+    <!-- Branding & Descripción -->
+    <div class="footer-brand">
+      <h2 class="footer-logo">MIAN</h2>
+      <p class="footer-tagline">Electronic Music & Live DJ Sets</p>
+    </div>
+
+    <!-- Enlaces Sociales y Contacto -->
+    <div class="footer-links">
+      <a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        <span>YouTube</span>
+      </a>
+
+      <a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <span>Facebook</span>
+      </a>
+
+      <a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener" aria-label="SoundCloud">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
+        <span>SoundCloud</span>
+      </a>
+
+      <a href="https://github.com/MiguelAngelVazquezPech" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        <span>GitHub</span>
+      </a>
+
+      <a href="../contacto.html" aria-label="Contacto por Correo">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Contacto</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Copyright y Nota de Alojamiento -->
+  <div class="footer-bottom">
+    <p>&copy; 2026 <strong>MIAN</strong>. Todos los derechos reservados.</p>
+    <p class="footer-host-note">Audio streaming alojado en Internet Archive.</p>
+  </div>
+</footer>
+</body>
+</html>
