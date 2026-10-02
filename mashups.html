@@ -124,7 +124,7 @@ const mashups = [
         img: "Images/Eiffel 65 & Pegboard Nerds - Im Blue Disconected (Mian Mashup).webp",
         audioSrc: "Mashups/Eiffel 65 & Pegboard Nerds - Im Blue Disconected (Mian Mashup).mp3",
         downloadLink: "Mashups/Eiffel 65 & Pegboard Nerds - Im Blue Disconected (Mian Mashup).mp3",
-        color: "#f7d46a",
+        color: "#f3f400",
         visible: true
       },
       {
@@ -139,7 +139,7 @@ const mashups = [
         img: "Images/Eiffel 65 & Hiisak (Tom Swoon Edit) Move Your Body vs La Fanfarra (Mian Mashup).webp",
         audioSrc: "Mashups/Eiffel 65 & Hiisak (Tom Swoon Edit) Move Your Body vs La Fanfarra (Mian Mashup).mp3",
         downloadLink: "Mashups/Eiffel 65 & Hiisak (Tom Swoon Edit) Move Your Body vs La Fanfarra (Mian Mashup).mp3",
-        color: "#f7d46a",
+        color: "#e35f13",
         visible: true
       },
       {
@@ -154,7 +154,7 @@ const mashups = [
         img: "Images/Mike Posner & Valentino Khan - I Took a Pill in Deep Dow Low (Seeb Remix) (Mian Mashup).webp",
         audioSrc: "Mashups/Mike Posner & Valentino Khan - I Took a Pill in Deep Dow Low (Seeb Remix) (Mian Mashup).mp3",
         downloadLink: "Mashups/Mike Posner & Valentino Khan - I Took a Pill in Deep Dow Low (Seeb Remix) (Mian Mashup).mp3",
-        color: "#f7d46a",
+        color: "#a19491",
         visible: true
       },
       {
@@ -169,7 +169,7 @@ const mashups = [
         img: "Images/Jewelz  Sparks & Skrillex - I Must Fly (Mian Mashup).webp",
         audioSrc: "Mashups/Jewelz  Sparks & Skrillex - I Must Fly (Mian Mashup).mp3",
         downloadLink: "Mashups/Jewelz  Sparks & Skrillex - I Must Fly (Mian Mashup).mp3",
-        color: "#f7d46a",
+        color: "#1ab9f6",
         visible: true
       },
       {
@@ -184,7 +184,7 @@ const mashups = [
         img: "Images/Bad Lights Man Out - Skrillex & Zomboy (Mian Mashup) .webp",
         audioSrc: "Mashups/Bad Lights Man Out - Skrillex & Zomboy (Mian Mashup) .mp3",
         downloadLink: "Mashups/Bad Lights Man Out - Skrillex & Zomboy (Mian Mashup) .mp3",
-        color: "#f7d46a",
+        color: "#fb2de5",
         visible: true
       },
       {
@@ -200,7 +200,7 @@ const mashups = [
         img: "Images/Skrillex - Red Lips vs Try it Out vs Scary Like a G6 (Mian Mashup).webp",
         audioSrc: "Mashups/Skrillex - Red Lips vs Try it Out vs Scary Like a G6 (Mian Mashup).mp3",
         downloadLink: "Mashups/Skrillex - Red Lips vs Try it Out vs Scary Like a G6 (Mian Mashup).mp3",
-        color: "#f7d46a",
+        color: "#339966",
         visible: true
       },
     ];
@@ -228,7 +228,7 @@ const mashupHTML = (m) => `
           <audio controls preload="none" class="w-100 mb-3" style="height: 40px; border-radius: 20px; outline: none;">
             <source src="${m.audioSrc}" type="audio/mpeg">
           </audio>
-          
+
           <a href="${m.downloadLink}" target="_blank" download class="btn rounded-pill w-100 text-uppercase fw-bold small mt-auto d-flex justify-content-center align-items-center gap-2 mashup-btn" style="border: 2px solid ${m.color}; color: ${m.color}; background: transparent; transition: all 0.3s ease;" onmouseover="this.style.background='${m.color}'; this.style.color='#0a0a0f';" onmouseout="this.style.background='transparent'; this.style.color='${m.color}';">
             <svg class="ico"><use href="#i-download"/></svg> Descargar DJ Edit
           </a>
