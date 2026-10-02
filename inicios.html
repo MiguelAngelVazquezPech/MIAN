@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="css/index.css">
 
   <style>
-    /* Asegura que el footer se mantenga abajo en páginas con poco contenido */
     body {
       min-height: 100vh;
       display: flex;
@@ -26,6 +25,18 @@
     }
     main {
       flex: 1;
+    }
+    .set-card {
+      background: var(--card-bg, #12131c);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .set-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
     }
   </style>
 </head>
@@ -110,12 +121,52 @@
     const archive = [
       {
         id: 1,
-        title: "Primer Mix de Estudio",
-        yearVol: "2018 - Vol. 01",
+        title: "1° MIX MIAN",
+        yearVol: "Inicios • Vol. 01",
         software: "VirtualDJ",
-        desc: "Esta fue una de mis primeras prácticas completas grabadas. Estaba experimentando con House clásico y transiciones básicas. Un recordatorio humilde de dónde vengo.",
-        audioSrc: "https://archive.org/download/TU_ENLACE_AQUI/archivo.mp3",
+        desc: "7 Tracks - Electro House & Big Room. Las primeras mezclas donde comenzó a forjarse el proyecto MIAN.",
+        url: "Sets/1_MIX_MIAN.html",
+        color: "#00f0ff",
+        visible: true
+      },
+      {
+        id: 2,
+        title: "2° MIX MIAN",
+        yearVol: "Inicios • Vol. 02",
+        software: "VirtualDJ",
+        desc: "12 Tracks - Future House & Dance Electro. Selección de temas rítmicos y remezclas con groove potente.",
+        url: "Sets/2_MIX_MIAN.html",
+        color: "#ff007f",
+        visible: true
+      },
+      {
+        id: 3,
+        title: "3° MIX MIAN (DUBSTEP)",
+        yearVol: "Inicios • Vol. 03",
+        software: "VirtualDJ",
+        desc: "4 Tracks - Dubstep & Bass Energy. Mashups explosivos con bombas de MUST DIE! y Zomboy.",
+        url: "Sets/3_MIX_MIAN_DUBSTEP.html",
+        color: "#a855f7",
+        visible: true
+      },
+      {
+        id: 4,
+        title: "4° MIX MIAN",
+        yearVol: "Inicios • Vol. 04",
+        software: "VirtualDJ",
+        desc: "9 Tracks - CP Electro & Commercial Hits. Remezclas de David Guetta, LMFAO, Martin Solveig y clásicos.",
+        url: "Sets/4_MIX_MIAN.html",
         color: "#ffaa00",
+        visible: true
+      },
+      {
+        id: 5,
+        title: "5° MIX MIAN (DUBSTEP)",
+        yearVol: "Inicios • Vol. 05",
+        software: "VirtualDJ",
+        desc: "7 Tracks - Pure Dubstep & Heavy Bass. Sonidos contundentes de Virtual Riot, Zomboy y ShockOne.",
+        url: "Sets/5_MIX_MIAN_DUBSTEP.html",
+        color: "#00ff88",
         visible: true
       }
     ];
@@ -123,7 +174,7 @@
     const container = document.getElementById('inicios-container');
     const archiveHTML = (a) => `
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="set-card d-flex flex-column" style="border-color: ${a.color}40; padding: 20px;">
+        <a href="${a.url}" class="set-card d-flex flex-column p-4 h-100" style="border-color: ${a.color}40;">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="year-badge text-uppercase fw-bold" style="color: ${a.color}; border-color: ${a.color}60;">
               <svg class="ico me-1"><use href="#i-clock-history"/></svg> ${a.yearVol}
@@ -134,10 +185,12 @@
           <h4 class="fw-bold text-light mb-2">${a.title}</h4>
           <p class="small text-secondary mb-4 flex-grow-1">${a.desc}</p>
           
-          <audio controls class="w-100 mt-auto" style="height: 40px; border-radius: 20px; outline: none;">
-            <source src="${a.audioSrc}" type="audio/mpeg">
-          </audio>
-        </div>
+          <div class="mt-auto pt-3 border-t border-secondary text-end">
+            <span class="btn btn-outline-info btn-sm rounded-pill px-3">
+              Ver Tracklist & Reproductor &rarr;
+            </span>
+          </div>
+        </a>
       </div>
     `;
     container.innerHTML = archive.filter(a => a.visible).map(archiveHTML).join('');
