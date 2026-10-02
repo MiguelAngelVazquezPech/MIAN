@@ -118,36 +118,209 @@
     </div>
   </footer>
 
-  <script>
-    // LISTA DE PRODUCCIONES ORIGINALES
+<script>
+    // LISTA DE PRODUCCIONES ORIGINALES (Fechas en formato YYYY-MM-DD para ordenamiento correcto)
     const tracks = [
       {
         id: 1,
-        title: "MIAN - Dark Nebula",
+        title: "Chain Reaction",
         genre: "Peak-Time Techno",
-        bpmKey: "132 BPM • Am",
-        desc: "Una pista envolvente diseñada para reventar la pista de baile a mitad de la noche. Bajos pesados, sintetizadores oscuros y un drop contundente.",
-        youtubeId: "https://youtu.be/ux9RAV-ulxM?si=IcGuSFPhDu8lbDfi", // Puedes pegar el link completo o solo el ID
-        date: "Septiembre 2026",
-        color: "#00f0ff", // primary-neon
+        bpmKey: "4:27 MIN",
+        desc: "Producción de Peak-Time Techno enérgica con sintetizadores potentes, ritmos hipnóticos y una atmósfera industrial intensa.",
+        youtubeId: "https://www.youtube.com/watch?v=gxjeMapocNY",
+        date: "2026-09-17",
+        color: "#00f0ff",
         visible: true
       },
       {
         id: 2,
-        title: "MIAN - Neon City Lights",
+        title: "Sunburn",
+        genre: "Tech House",
+        bpmKey: "6:20 MIN",
+        desc: "Pista de Tech House impulsada por líneas de bajo profundas, sintetizadores hipnóticos y una estructura de 6 minutos para el club.",
+        youtubeId: "https://www.youtube.com/watch?v=MQOrq_IoXeI",
+        date: "2026-09-16",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 3,
+        title: "Night Shift",
+        genre: "French House",
+        bpmKey: "3:23 MIN",
+        desc: "Un viaje de inspiración retro-futurista con secuencias de bajo pegajosas, acordes cálidos y vibras nocturnas.",
+        youtubeId: "https://www.youtube.com/watch?v=aE8aynHipQs",
+        date: "2026-09-15",
+        color: "#ff007f",
+        visible: true
+      },
+      {
+        id: 4,
+        title: "Afterglow",
         genre: "Future House",
-        bpmKey: "126 BPM • Fm",
-        desc: "Melodías vibrantes inspiradas en el estilo clásico de Oliver Heldens. Un track lleno de energía, pianos potentes y un groove inconfundible.",
-        youtubeId: "PON_AQUI_OTRO_LINK_O_ID",
-        date: "Octubre 2026",
-        color: "#ff007f", // secondary-neon
-        visible: true // Cambia a false si no quieres que se vea aún
-      }
+        bpmKey: "3:41 MIN",
+        desc: "Track melódico y dinámico de Future House con sintetizadores brillantes y drops llenos de energía.",
+        youtubeId: "https://www.youtube.com/watch?v=Gzq88ZG35XI",
+        date: "2026-08-14",
+        color: "#1ab9f6",
+        visible: true
+      },
+      {
+        id: 5,
+        title: "Parallels",
+        genre: "Tech House",
+        bpmKey: "3:18 MIN",
+        desc: "Composición electrónica rítmica y pulsante con elementos de Tech House y patrones sintéticos entrelazados.",
+        youtubeId: "https://www.youtube.com/watch?v=cu_6mLtIY1o",
+        date: "2026-08-13",
+        color: "#e35f13",
+        visible: true
+      },
+      {
+        id: 6,
+        title: "Riptide",
+        genre: "Future House",
+        bpmKey: "3:32 MIN",
+        desc: "Un tema potente con bajos explosivos, transiciones fluidas y una fuerza envolvente diseñada para la pista.",
+        youtubeId: "https://www.youtube.com/watch?v=t2qwunw-sZE",
+        date: "2026-08-12",
+        color: "#fb2de5",
+        visible: true
+      },
+      {
+        id: 7,
+        title: "Wildcards",
+        genre: "Tech House",
+        bpmKey: "3:12 MIN",
+        desc: "Producción impredecible y llena de textura, destacando por sus cortes de ritmo agudos y energía constante.",
+        youtubeId: "https://www.youtube.com/watch?v=FuZ1k2byGv4",
+        date: "2026-08-11",
+        color: "#339966",
+        visible: true
+      },
+      {
+        id: 8,
+        title: "Blindspots",
+        genre: "Melodic Techno",
+        bpmKey: "3:02 MIN",
+        desc: "Pista envolvente con atmósferas oscuras, voces sampleadas y melodías sintéticas melancólicas.",
+        youtubeId: "https://www.youtube.com/watch?v=Kaf9Kcu88xA",
+        date: "2026-08-10",
+        color: "#a19491",
+        visible: true
+      },
+      {
+        id: 9,
+        title: "Fully in Alignment",
+        genre: "Vocal House",
+        bpmKey: "4:49 MIN",
+        desc: "Tema de Vocal House armónico con vocales emotivas, arpegios suaves y una progresión sonora envolvente.",
+        youtubeId: "https://www.youtube.com/watch?v=fs3psdW1j3M",
+        date: "2026-08-09",
+        color: "#f3f400",
+        visible: true
+      },
+      {
+        id: 10,
+        title: "Golden Frequency",
+        genre: "French House",
+        bpmKey: "4:48 MIN",
+        desc: "Producción veraniega y relajante con vocales cálidas, melodías luminosas y vibras de atardecer.",
+        youtubeId: "https://www.youtube.com/watch?v=CSRhnWSkQow",
+        date: "2026-08-08",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 11,
+        title: "Midnight Velvet",
+        genre: "French House",
+        bpmKey: "3:37 MIN",
+        desc: "Pista suave y elegante de French House con vocales de terciopelo, bajos profundos y estética nocturna.",
+        youtubeId: "https://www.youtube.com/watch?v=OKONra4zKIo",
+        date: "2026-08-07",
+        color: "#ff007f",
+        visible: true
+      },
+      {
+        id: 12,
+        title: "Full Moon Light",
+        genre: "Melodic Techno",
+        bpmKey: "5:01 MIN",
+        desc: "Experiencia atmosférica e hipnótica que combina melodías inspiradas en la luna llena con una sección rítmica constante.",
+        youtubeId: "https://www.youtube.com/watch?v=-AW34Q8lhc0",
+        date: "2026-08-06",
+        color: "#00f0ff",
+        visible: true
+      },
+      {
+        id: 13,
+        title: "Digital Love",
+        genre: "French House",
+        bpmKey: "3:14 MIN",
+        desc: "Homenaje al sonido clásico del French House, combinando vocales románticas, sintetizadores brillantes y un ritmo bailable.",
+        youtubeId: "https://www.youtube.com/watch?v=-LABdqkP7yI",
+        date: "2026-08-05",
+        color: "#fb2de5",
+        visible: true
+      },
+      {
+        id: 14,
+        title: "Ride the Fire",
+        genre: "Peak-Time Techno",
+        bpmKey: "3:14 MIN",
+        desc: "Producción de ritmo acelerado y potentes líneas de bajo diseñadas para encender cualquier pista de baile.",
+        youtubeId: "https://www.youtube.com/watch?v=aXteittNYbs",
+        date: "2026-08-04",
+        color: "#e35f13",
+        visible: true
+      },
+      {
+        id: 15,
+        title: "Gridlock",
+        genre: "Tech House",
+        bpmKey: "3:09 MIN",
+        desc: "Ritmo seco, percusiones afiladas y bajo contundente en un corte puro de Tech House para club.",
+        youtubeId: "https://www.youtube.com/watch?v=xDEYyOlSMts",
+        date: "2026-08-04",
+        color: "#339966",
+        visible: true
+      },
+      {
+        id: 16,
+        title: "Docklands",
+        genre: "Techno",
+        bpmKey: "5:04 MIN",
+        desc: "Tema extenso y oscuro con texturas industriales, ideal para sets nocturnos profundos.",
+        youtubeId: "https://www.youtube.com/watch?v=wddPhnpj_v4",
+        date: "2026-08-04",
+        color: "#a19491",
+        visible: true
+      },
+      {
+        id: 17,
+        title: "Staccato",
+        genre: "Peak-Time Techno",
+        bpmKey: "5:16 MIN",
+        desc: "Secuencias de sintetizador entrecortadas (staccato) con percusiones potentes y un desarrollo dinámico.",
+        youtubeId: "https://www.youtube.com/watch?v=ux9RAV-ulxM",
+        date: "2026-08-04",
+        color: "#1ab9f6",
+        visible: true
+      },
     ];
 
     const container = document.getElementById('tracks-container');
 
-    // Función inteligente que extrae solo el ID de cualquier link de YouTube
+    // Función que convierte "2026-08-14" a "14 Ago 2026" visualmente
+    function formatDate(dateStr) {
+      if (!dateStr || !dateStr.includes('-')) return dateStr;
+      const [y, m, d] = dateStr.split('-');
+      const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+      return `${parseInt(d, 10)} ${months[parseInt(m, 10) - 1]} ${y}`;
+    }
+
+    // Extrae el ID de YouTube
     function getYTId(url) {
       if (!url.includes('http')) return url;
       const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/gi;
@@ -173,14 +346,20 @@
           </div>
           
           <div class="text-end small text-secondary mt-1">
-            <svg class="ico me-1 text-danger"><use href="#i-youtube"/></svg> Estreno: ${t.date}
+            <svg class="ico me-1 text-danger"><use href="#i-youtube"/></svg> Estreno: ${formatDate(t.date)}
           </div>
         </div>
       </div>
     `;
 
-    container.innerHTML = tracks.filter(t => t.visible).map(trackHTML).join('');
+    // Renderiza ordenando automáticamente de más reciente a más antiguo por fecha YYYY-MM-DD
+    container.innerHTML = tracks
+      .filter(t => t.visible)
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .map(trackHTML)
+      .join('');
 
+    // Controles del menú FAB
     const fabMenu = document.getElementById('fabMenu');
     const fabToggle = document.getElementById('fabToggle');
     const fabBackdrop = document.getElementById('fabBackdrop');
