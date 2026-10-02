@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIAN - Mashups & DJ Edits</title>
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="description" content="Bootlegs y Mashups exclusivos de MIAN listos para reventar la pista.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MIAN | Mashups & DJ Edits">
+  <meta property="og:image" content="https://djmianvazquez.com/Images/logo.webp">
+  <meta property="og:url" content="https://djmianvazquez.com/mashups.html">
+  
+  <link rel="icon" type="image/x-icon" href="Images/logo.ico">
+  <link rel="preload" as="image" href="Images/fondo.webp" fetchpriority="high">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-music-note-list" viewBox="0 0 16 16"><path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M12 3v10h-1V3h1z"/><path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"/><path fill-rule="evenodd" d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/></symbol>
+    <symbol id="i-disc" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1zm4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5z"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"/><path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/></symbol>
+    <symbol id="i-clock-history" viewBox="0 0 16 16"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/><path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/><path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/></symbol>
+    <symbol id="i-link-45deg" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></symbol>
+    <symbol id="i-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></symbol>
+  </svg>
+
+  <div class="bg-fixed-blur" aria-hidden="true"></div>
+
+  <div class="fab-backdrop" id="fabBackdrop" aria-hidden="true"></div>
+  <div class="fab-menu" id="fabMenu">
+    <nav class="fab-options" id="fabOptions" aria-label="Navegación principal">
+      <a href="index.html"><svg class="ico"><use href="#i-music-note-list"/></svg><span>Mixes</span></a>
+      <a href="originales.html"><svg class="ico"><use href="#i-disc"/></svg><span>Originales</span></a>
+      <a href="mashups.html" class="active" aria-current="page"><svg class="ico"><use href="#i-shuffle"/></svg><span>Mashups</span></a>
+      <a href="inicios.html"><svg class="ico"><use href="#i-clock-history"/></svg><span>Mis Inicios</span></a>
+      <a href="links.html"><svg class="ico"><use href="#i-link-45deg"/></svg><span>Links</span></a>
+    </nav>
+    <button class="fab-main" id="fabToggle" type="button" aria-expanded="false" aria-controls="fabOptions" aria-label="Abrir menú">
+      <svg class="ico ico-open"><use href="#i-list"/></svg><svg class="ico ico-close"><use href="#i-x-lg"/></svg>
+    </button>
+  </div>
+
+  <main class="container py-5 my-auto">
+    <div class="text-center mb-5">
+      <img src="Images/logo.webp" alt="MIAN Logo" class="logo-img mb-2" width="640" height="465" fetchpriority="high" style="max-height: 80px; margin-top: 0;">
+      <h1 class="fw-bold display-6 text-uppercase page-title" style="color: var(--secondary-neon);">Mashups & Edits</h1>
+      <p class="text-center small mb-4" style="color:white;">Combinaciones exclusivas, bootlegs y edits armados para reventar la pista.</p>
+    </div>
+
+    <!-- CONTENEDOR GRID GENERADO POR JS -->
+    <div class="row g-4 justify-content-center" id="mashups-container"></div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2 class="footer-logo">MIAN</h2>
+        <p class="footer-tagline">Electronic Music & Live DJ Sets</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          <span>YouTube</span>
+        </a>
+        <a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener" aria-label="SoundCloud">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
+          <span>SoundCloud</span>
+        </a>
+        <a href="https://github.com/MiguelAngelVazquezPech" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="contacto.html" aria-label="Contacto por Correo">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Contacto</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>MIAN</strong>. Todos los derechos reservados.</p>
+      <p class="footer-host-note">Audio streaming alojado en Internet Archive.</p>
+    </div>
+  </footer>
+
+  <script>
+    // LISTA DE MASHUPS
+const mashups = [
+      {
+        id: 1,
+        title: "Dinosaur Here",
+        genre: "Electronic Dance Music (EDM)",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Acapella: Alessia Cara - Here",
+          "2. Instrumental: Bassjackers & Jay Hardway - Dinosaur",
+        ],
+        img: "Images/Bassjackers & Jay Hardway ft Alessia Cara - Dinosaur Here (Mian Mashup).webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_1",
+        downloadLink: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_1",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 2,
+        title: "Im Blue Disconected",
+        genre: "Electronic Dance Music (EDM)",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Acapella: Eiffel 65 - Blue (Da Ba Dee)",
+          "2. Instrumental: Pegboard Nerds - Disconnected",
+        ],
+        img: "Images/Eiffel 65 & Pegboard Nerds - Im Blue Disconected (Mian Mashup).webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=1rRlSkt2E0vSDUfy0MRGB_16PHelVJAFR",
+        downloadLink: "https://drive.google.com/uc?export=download&id=1rRlSkt2E0vSDUfy0MRGB_16PHelVJAFR",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 3,
+        title: "Move Your Body vs La Fanfarra",
+        genre: "Electronic Dance Music (EDM)",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Acapella: Eiffel 65 - Move Your Body",
+          "2. Instrumental: Hiisak - La Fanfarra (Tom Swoon Edit)",
+        ],
+        img: "Images/Eiffel 65 & Hiisak (Tom Swoon Edit) Move Your Body vs La Fanfarra (Mian Mashup).webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_3",
+        downloadLink: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_3",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 4,
+        title: "I Took a Pill in Deep Down Low",
+        genre: "Electronic Dance Music (EDM)",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Instrumental: Mike Posner - I Took A Pill In Ibiza",
+          "2. Instrumental: Valentino Khan - Deep Down Low",
+        ],
+        img: "Images/Mike Posner & Valentino Khan - I Took a Pill in Deep Dow Low (Seeb Remix) (Mian Mashup).webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_4",
+        downloadLink: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_4",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 5,
+        title: "I Must Fly",
+        genre: "Electronic Dance Music (EDM)",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Instrumental: Jewelz & Sparks - I Can Fly",
+          "2. Instrumental: Skrillex & MUST DIE! - VIP's",
+        ],
+        img: "Images/Jewelz  Sparks & Skrillex - I Must Fly (Mian Mashup).webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_5",
+        downloadLink: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_5",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 6,
+        title: "Bad Lights Man Out",
+        genre: "Dubstep",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Instrumental: Ragga Twins - Bad Man (Skrillex Remix)",
+          "2. Instrumental: Zomboy - Lights Out",
+        ],
+        img: "Images/Bad Lights Man Out - Skrillex & Zomboy (Mian Mashup) .webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_6",
+        downloadLink: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_6",
+        color: "#f7d46a",
+        visible: true
+      },
+      {
+        id: 7,
+        title: "Red Lips vs Try it Out vs Scary Like a G6",
+        genre: "Dubstep",
+        bpm: "128 BPM",
+        tracksUsed: [
+          "1. Instrumental: GTA - Red Lips feat. Sam Bruno (Skrillex Remix)",
+          "2. Instrumental: Skrillex & Alvin Risk - Try It Out",
+          "3. Instrumental: Skrillex - Scary like a G6",
+        ],
+        img: "Images/Skrillex - Red Lips vs Try it Out vs Scary Like a G6 (Mian Mashup).webp",
+        audioSrc: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_7",
+        downloadLink: "https://drive.google.com/uc?export=download&id=PEGA_AQUI_EL_ID_DE_TRACK_7",
+        color: "#f7d46a",
+        visible: true
+      },
+    ];
+
+    const container = document.getElementById('mashups-container');
+const mashupHTML = (m) => `
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="set-card d-flex flex-column" style="border-color: ${m.color}40; padding: 20px;">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="year-badge text-uppercase fw-bold" style="color: ${m.color}; border-color: ${m.color}60;">${m.genre}</span>
+            <span class="small text-secondary fw-bold">${m.bpm}</span>
+          </div>
+          
+          <img src="${m.img}" alt="${m.title} Cover" class="cover-img mb-3" width="350" height="350" loading="lazy" decoding="async">
+          
+          <h4 class="fw-bold text-light mb-3">${m.title}</h4>
+          
+          <!-- Contenedor dinámico de tracks -->
+          <div class="p-3 mb-4 shadow-sm" style="background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+            <div class="small text-secondary fw-bold mb-2 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px;">Tracks Mezclados:</div>
+            ${m.tracksUsed.map(track => `<div class="small text-light mb-1 d-flex align-items-center gap-2"><span>🎵</span> ${track}</div>`).join('')}
+          </div>
+          
+          <!-- AUDIO OPTIMIZADO CON PRELOAD NONE -->
+          <audio controls preload="none" class="w-100 mb-3" style="height: 40px; border-radius: 20px; outline: none;">
+            <source src="${m.audioSrc}" type="audio/mpeg">
+          </audio>
+          
+          <a href="${m.downloadLink}" target="_blank" download class="btn rounded-pill w-100 text-uppercase fw-bold small mt-auto d-flex justify-content-center align-items-center gap-2 mashup-btn" style="border: 2px solid ${m.color}; color: ${m.color}; background: transparent; transition: all 0.3s ease;" onmouseover="this.style.background='${m.color}'; this.style.color='#0a0a0f';" onmouseout="this.style.background='transparent'; this.style.color='${m.color}';">
+            <svg class="ico"><use href="#i-download"/></svg> Descargar DJ Edit
+          </a>
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = mashups.filter(m => m.visible).map(mashupHTML).join('');
+
+    const fabMenu = document.getElementById('fabMenu');
+    const fabToggle = document.getElementById('fabToggle');
+    const fabBackdrop = document.getElementById('fabBackdrop');
+    function setFab(open) {
+      fabMenu.classList.toggle('open', open);
+      fabBackdrop.classList.toggle('show', open);
+      fabToggle.setAttribute('aria-expanded', open);
+      fabToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+    fabToggle.addEventListener('click', () => setFab(!fabMenu.classList.contains('open')));
+    fabBackdrop.addEventListener('click', () => setFab(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setFab(false); });
+    window.addEventListener('pageshow', () => setFab(false));
+  </script>
+</body>
+</html>
