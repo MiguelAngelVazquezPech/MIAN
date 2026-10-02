@@ -4,19 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIAN - Links Oficiales</title>
-  <meta name="theme-color" content="#0a0a0f">
   <meta name="description" content="Portal oficial de MIAN. Todos los enlaces a mis redes sociales y plataformas de música.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="canonical" href="https://djmianvazquez.com/links.html">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MIAN">
+  <meta property="og:locale" content="es_MX">
   <meta property="og:title" content="MIAN | Links Oficiales">
+  <meta property="og:description" content="Portal oficial de MIAN. Todos los enlaces a mis redes sociales y plataformas de música.">
   <meta property="og:image" content="https://djmianvazquez.com/Images/logo.webp">
   <meta property="og:url" content="https://djmianvazquez.com/links.html">
-  
+  <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/x-icon" href="Images/logo.ico">
+  <!-- El fondo se pide en paralelo con el CSS en vez de esperar a que se lea -->
   <link rel="preload" as="image" href="Images/fondo.webp" fetchpriority="high">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-lite.css">
   <link rel="stylesheet" href="css/index.css">
-
   <style>
     body {
       min-height: 100vh;
@@ -60,8 +63,10 @@
     <symbol id="i-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></symbol>
   </svg>
 
+  <!-- CAPA DE FONDO DIFUMINADO -->
   <div class="bg-fixed-blur" aria-hidden="true"></div>
 
+  <!-- MENÚ FLOTANTE -->
   <div class="fab-backdrop" id="fabBackdrop" aria-hidden="true"></div>
   <div class="fab-menu" id="fabMenu">
     <nav class="fab-options" id="fabOptions" aria-label="Navegación principal">
@@ -78,18 +83,18 @@
 
   <main class="container py-5 my-auto">
     <div class="links-wrapper text-center">
-      
+
       <!-- Avatar / Logo -->
-      <img src="Images/logo.webp" alt="MIAN Logo" class="img-fluid mb-3" style="max-height: 90px; filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));">
-      <h3 class="fw-bold text-light mb-1" style="letter-spacing: 2px;">MIAN</h3>
-      <p class="text-center small mb-4" style="color:white;">DJ & Music Producer | Tech House & Techno</p>
+      <img src="Images/logo.webp" alt="MIAN Logo" class="img-fluid mb-3" width="640" height="465" fetchpriority="high" style="height: 90px; width: auto; filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));">
+      <h1 class="h3 fw-bold text-light mb-1" style="letter-spacing: 2px;">MIAN</h1>
+      <p class="text-center small mb-4" style="color:white;">DJ &amp; Music Producer | Tech House &amp; Techno</p>
 
       <!-- Botones de Redes y Plataformas -->
       <div class="d-flex flex-column gap-3">
-        
+
         <a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener" class="link-tree-btn highlight">
           <span class="d-flex align-items-center gap-3">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" style="color: #ff0000;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true" style="color: #ff0000;"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
             Canal de YouTube Oficial
           </span>
           <span class="small text-secondary">&rarr;</span>
@@ -97,7 +102,7 @@
 
         <a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener" class="link-tree-btn">
           <span class="d-flex align-items-center gap-3">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" style="color: #ff7700;"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true" style="color: #ff7700;"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
             SoundCloud Sets Oficial
           </span>
           <span class="small text-secondary">&rarr;</span>
@@ -105,7 +110,7 @@
 
         <a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener" class="link-tree-btn">
           <span class="d-flex align-items-center gap-3">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" style="color: #e1306c;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true" style="color: #e1306c;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             Instagram Oficial
           </span>
           <span class="small text-secondary">&rarr;</span>
@@ -113,7 +118,7 @@
 
         <a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener" class="link-tree-btn">
           <span class="d-flex align-items-center gap-3">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" style="color: #1877f2;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true" style="color: #1877f2;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
             Facebook Oficial
           </span>
           <span class="small text-secondary">&rarr;</span>
@@ -126,31 +131,31 @@
     <div class="footer-content">
       <div class="footer-brand">
         <h2 class="footer-logo">MIAN</h2>
-        <p class="footer-tagline">Electronic Music & Live DJ Sets</p>
+        <p class="footer-tagline">Electronic Music &amp; Live DJ Sets</p>
       </div>
       <div class="footer-links">
-        <a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+        <a href="https://youtube.com/@MIAN_VAZQUEZ" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
           <span>YouTube</span>
         </a>
-        <a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        <a href="https://facebook.com/MiguelVazquezPech" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           <span>Facebook</span>
         </a>
-        <a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <a href="https://instagram.com/miguelvazquezpech" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           <span>Instagram</span>
         </a>
-        <a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener" aria-label="SoundCloud">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
+        <a href="https://soundcloud.com/miguel-angel-vazquez-pech" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M2 15a3 3 0 0 0 3 3h13a4 4 0 0 0 0-8 3.5 3.5 0 0 0-3.3-2.3A4.5 4.5 0 0 0 10 11.5a3 3 0 0 0-8 3.5z"></path></svg>
           <span>SoundCloud</span>
         </a>
-        <a href="https://github.com/MiguelAngelVazquezPech" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        <a href="https://github.com/MiguelAngelVazquezPech" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
           <span>GitHub</span>
         </a>
-        <a href="contacto.html" aria-label="Contacto por Correo">
-          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <a href="contacto.html">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           <span>Contacto</span>
         </a>
       </div>
@@ -161,18 +166,22 @@
   </footer>
 
   <script>
+    // ===== MENÚ FLOTANTE =====
     const fabMenu = document.getElementById('fabMenu');
     const fabToggle = document.getElementById('fabToggle');
     const fabBackdrop = document.getElementById('fabBackdrop');
+
     function setFab(open) {
       fabMenu.classList.toggle('open', open);
       fabBackdrop.classList.toggle('show', open);
       fabToggle.setAttribute('aria-expanded', open);
       fabToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     }
+
     fabToggle.addEventListener('click', () => setFab(!fabMenu.classList.contains('open')));
     fabBackdrop.addEventListener('click', () => setFab(false));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') setFab(false); });
+    // Si el usuario regresa con el botón "atrás", el menú no debe quedar abierto
     window.addEventListener('pageshow', () => setFab(false));
   </script>
 </body>
